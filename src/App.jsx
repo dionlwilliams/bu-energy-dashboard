@@ -3,20 +3,24 @@ import { Route, Routes } from 'react-router-dom'
 import OverviewPage from './webpages/OverviewPage'
 import MapPage from './webpages/MapPage'
 import LeaderboardPage from './webpages/LeaderboardPage'
+import Menu from './components/Menu'
 
 function App({}) {
-  console.log()
-
   return (
-    <div className='flex h-screen bg-orange-50 text-stone-800 overflow-hidden'>
+    <div className='flex h-screen text-stone-800 overflow-hidden'>
+    {/*bg styling - come back to later*/}
+    <div className='fixed inset-0 z-0'>
+      <div className='absolute inset-0 bg-orange-100 opacity-80' />
+    </div>
 
+    <Menu />
     <Routes>
       <Route path='/' element={<OverviewPage />} />
       <Route path='/map' element={<MapPage />} />
       <Route path='/leaderboard' element={<LeaderboardPage />} />
     </Routes>
     </div>
-  )
+  );
 }
 
 export default App
