@@ -1,8 +1,7 @@
 import React from 'react'
 import { ChartNoAxesCombined, MapPinned, Info } from 'lucide-react';
 import { MdOutlineLeaderboard } from "react-icons/md";
-import { useState } from 'react';
-import { AnimatePresence, color, motion } from 'motion/react'
+import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 
 const MENU_LIST = [
@@ -19,20 +18,20 @@ const Menu = () => {
         </div>
         <nav className='mt-6 flex-grow'>
           {MENU_LIST.map((item) => (
-            <Link key={item.path} to={item.path}>
-            <motion.div className='flex items-center pl-10 w-75 h-35 text-lg font-medium rounded-lg hover:bg-neutral-400'>
-              <item.icon size={50} className='align-middle' style={{color: item.color}} />
-                <span className='ml-6'>
-                  {item.name}
-                </span>
-            </motion.div>
+            <Link key={item.path} to={item.path} className='block w-full mb-2'>
+              <div className='flex items-center mb-5 pl-10 w-full h-20 text-lg font-medium rounded-lg hover:bg-neutral-400'>
+                <item.icon size={50} className='align-middle' style={{color: item.color}} />
+                  <span className='ml-6'>
+                    {item.name}
+                  </span>
+              </div>
             </Link>
           ))}
 
         </nav>  
         <div className='bottom-8'>
           <hr />
-          <motion.div className='flex items-center pl-10 p-10 text-lg font-medium rounded-lg'>
+          <motion.div className='flex items-center pl-10 p-10 text-lg font-medium rounded-lg hover:bg-neutral-400'>
             <Info size={50} color="#201d1d"/>
             <p className='ml-6'>About Metrics</p>
           </motion.div>

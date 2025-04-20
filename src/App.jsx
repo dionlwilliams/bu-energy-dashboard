@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Route, Routes } from 'react-router-dom'
+import { Router, Routes, Route } from 'react-router-dom'
 import OverviewPage from './webpages/OverviewPage'
 import MapPage from './webpages/MapPage'
 import LeaderboardPage from './webpages/LeaderboardPage'
@@ -7,12 +7,9 @@ import Menu from './components/Menu'
 
 function App({}) {
   return (
-    <div className='flex h-screen text-stone-800 overflow-hidden'>
+    <div className='flex h-screen text-stone-900 overflow-hidden relative before:content-[""] before:absolute before:inset-0 before:bg-neutral-50 before:opacity-70 before:pointer-events-none'>
     {/*bg styling - come back to later*/}
-    <div className='fixed inset-0 z-0'>
-      <div className='absolute inset-0 bg-neutral-50 opacity-80' />
-    </div>
-
+    
     <Menu />
     <Routes>
       <Route path='/' element={<OverviewPage />} />
