@@ -10,7 +10,7 @@ function App({}) {
     <div className='flex h-screen text-stone-800 overflow-hidden'>
     {/*bg styling - come back to later*/}
     <div className='fixed inset-0 z-0'>
-      <div className='absolute inset-0 bg-orange-100 opacity-80' />
+      <div className='absolute inset-0 bg-neutral-50 opacity-80' />
     </div>
 
     <Menu />
