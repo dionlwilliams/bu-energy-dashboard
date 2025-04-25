@@ -22,10 +22,10 @@ const Menu = () => {
           {MENU_LIST.map((item) => (
             <Link key={item.path} to={item.path} className='block w-full mb-2'>
               <div className={`flex items-center mb-5 pl-10 w-full h-20 text-lg font-medium rounded-lg transition-colors duration-100
-              ${pathname === item.path ? 'bg-neutral-400' : 'hover:bg-neutral-400'}
+              ${pathname === item.path ? 'bg-neutral-400' : 'hover:bg-neutral-300'}
               `}>
                 <item.icon size={50} className='align-middle' style={{color: item.color}} />
-                  <span className='ml-6'>
+                  <span className={`ml-6 ${pathname === item.path ? 'text-neutral-950' : 'text-neutral-500'}`}>
                     {item.name}
                   </span>
               </div>
