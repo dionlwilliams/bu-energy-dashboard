@@ -2,13 +2,13 @@ import React from 'react'
 
 const OverviewPage = () => {
   return (
-    <div className='flex flex-col min-h-screen overflow-auto relative z-10'>
+    <div className='flex-1 overflow-auto relative z-10'>
       {/* Heading Bar */}
       <div className='w-full mx-auto h-32 py-4 px-4 grid grid-cols-[2fr_1fr] gap-4'>
         {/* Title */}
         <div className='flex flex-col justify-center m-4'>
           <h1 className='text-4xl font-light text-neutral-800 tracking-wider'>Talbot Campus Energy Overview</h1>
-          <p className='mt-2 font-light text-xl text-neutral-700 tracking-wide'>
+          <p className='m-2 font-light text-xl text-neutral-700 tracking-wide'>
             Measured in kWh per square meter (kWh/m²)
           </p>
         </div>
@@ -16,8 +16,10 @@ const OverviewPage = () => {
         <div className='' />
       </div>
 
+
+      <div className='flex-1 flex flex-col p-4'>
       {/* Top Row */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 m-8">
+      <div className='flex-1 grid grid-cols-1 md:grid-cols-3 o gap-8 pl-8 pb-4 pr-8 pt-4'>
         {/* Energy Use Line Graph Left */}
         <div className="md:col-span-2 bg-white p-4 rounded-lg shadow">
           <h2 className="text-xl font-light tracking-wide mb-4">Energy Use by Floor Area</h2>
@@ -35,7 +37,7 @@ const OverviewPage = () => {
       </div>
 
       {/* Bottom Row */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-8 m-8">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-8 pl-8 pb-4 pr-8 pt-4">
         {/* Campus Energy Pie Chart */}
         <div className="bg-white p-4 rounded-lg shadow flex flex-col items-center">
           <h2 className="text-xl font-light tracking-wide mb-4 text-center">What Powers our Campus?</h2>
@@ -62,6 +64,7 @@ const OverviewPage = () => {
           </div>
         </div>
       </div>
+    </div>
     </div>
   )
 }
