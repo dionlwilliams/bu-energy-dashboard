@@ -12,6 +12,7 @@
   "dependencies": {
     "@tailwindcss/vite": "^4.1.4",
     "framer-motion": "^12.7.4",
+    "json-loader": "^0.5.7",
     "lucide-react": "^0.494.0",
     "motion": "^12.7.4",
     "package.json": "^2.0.1",

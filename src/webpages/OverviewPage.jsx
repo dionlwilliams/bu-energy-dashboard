@@ -1,4 +1,5 @@
 import React from 'react'
+import LineGraph from '../components/overview/LineGraph'
 
 const OverviewPage = () => {
   return (
@@ -22,7 +23,8 @@ const OverviewPage = () => {
       <div className='flex-1 grid grid-cols-1 md:grid-cols-3 o gap-8 pl-8 pb-4 pr-8 pt-4'>
         {/* Energy Use Line Graph Left */}
         <div className="md:col-span-2 bg-white p-4 rounded-lg shadow">
-          <h2 className="text-xl font-light tracking-wide mb-4">Energy Use by Floor Area</h2>
+          <h2 className="text-xl font-light tracking-wide mb-4">Total Energy Use</h2>
+          <LineGraph />
         </div>
 
         {/* Environmental Impact Stats Right */}
