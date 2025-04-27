@@ -16,12 +16,12 @@ const CustomTooltip = ({ active, payload, label }) => {
 
 const LineGraph = ({data}) => {
   return (
-    <div className="h-60">
+    <div className="h-65">
       <ResponsiveContainer width={"100%"} height={"100%"}>
         <AreaChart data={data}>
           <defs>
             <linearGradient id="colourEnergy" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="5%" stopColor="#8884d8" stopOpacity={0.6}/>
+            <stop offset="5%" stopColor="#8884d8" stopOpacity={0.7}/>
             <stop offset="95%" stopColor="#8884d8" stopOpacity={0.01}/>
             </linearGradient>
           </defs>

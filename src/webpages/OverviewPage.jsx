@@ -23,7 +23,7 @@ const OverviewPage = () => {
 
       <div className='flex-1 flex flex-col p-4'>
       {/* Top Row */}
-      <div className='flex-1 grid grid-cols-1 md:grid-cols-3 o gap-8 pl-8 pb-4 pr-8 pt-4'>
+      <div className='flex-1 grid grid-cols-1 md:grid-cols-3 gap-8 pl-8 pb-4 pr-8 pt-4'>
         {/* Energy Use Line Graph Left */}
         <div className="md:col-span-2 bg-white p-4 rounded-lg shadow">
           <h2 className="text-xl font-light tracking-wide mb-4">Total Energy Use</h2>
@@ -42,9 +42,9 @@ const OverviewPage = () => {
       </div>
 
       {/* Bottom Row */}
-      <div className="grid grid-cols-1 md:grid-cols-5 gap-8 pl-8 pb-4 pr-8 pt-4">
+      <div className="flex-1 grid grid-cols-1 md:grid-cols-5 gap-8 pl-8 pb-4 pr-8 pt-4">
         {/* Campus Energy Pie Chart */}
-        <div className="md:col-span-2 bg-white p-4 rounded-lg shadow flex flex-col items-center">
+        <div className="md:col-span-2 bg-white p-4 rounded-lg shadow flex flex-col">
           <h2 className="text-xl font-light tracking-wide mb-4 text-center">What Powers our Campus?</h2>
           <PieGraph data={overallEnergyTypes.yearly}/>
         </div>
