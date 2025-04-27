@@ -1,0 +1,42 @@
+{
+    "daily": [
+      { "type": "Grid Electric", "kWh": 23000 },
+      { "type": "Solar PV", "kWh": 1300 },
+      { "type": "Natural Gas", "kWh": 18000 },
+      { "type": "LPG", "kWh": 900 },
+      { "type": "Biomass", "kWh": 1900 },
+      { "type": "GSHP", "kWh": 1500 },
+      { "type": "ASHP", "kWh": 40 },
+      { "type": "Solar Thermal", "kWh": 30 }
+    ],
+    "weekly": [
+      { "type": "Grid Electric", "kWh": 161000 },
+      { "type": "Solar PV", "kWh": 9800 },
+      { "type": "Natural Gas", "kWh": 128000 },
+      { "type": "LPG", "kWh": 6500 },
+      { "type": "Biomass", "kWh": 13500 },
+      { "type": "GSHP", "kWh": 10800 },
+      { "type": "ASHP", "kWh": 320 },
+      { "type": "Solar Thermal", "kWh": 240 }
+    ],
+    "monthly": [
+      { "type": "Grid Electric", "kWh": 690000 },
+      { "type": "Solar PV", "kWh": 42000 },
+      { "type": "Natural Gas", "kWh": 545000 },
+      { "type": "LPG", "kWh": 27500 },
+      { "type": "Biomass", "kWh": 57000 },
+      { "type": "GSHP", "kWh": 45600 },
+      { "type": "ASHP", "kWh": 1300 },
+      { "type": "Solar Thermal", "kWh": 960 }
+    ],
+    "yearly": [
+      { "type": "Grid Electric", "kWh": 8467311 },
+      { "type": "Solar PV", "kWh": 629290 },
+      { "type": "Natural Gas", "kWh": 6654960 },
+      { "type": "LPG", "kWh": 331719 },
+      { "type": "Biomass", "kWh": 671200 },
+      { "type": "GSHP", "kWh": 538796 },
+      { "type": "ASHP", "kWh": 4400 },
+      { "type": "Solar Thermal", "kWh": 3343 }
+    ]
+  }
