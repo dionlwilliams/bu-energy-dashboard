@@ -1,0 +1,58 @@
+{
+"daily": {
+    "totals": [
+      { "building": "Christchurch House", "kWh": 1850 },
+      { "building": "Dorset House", "kWh": 2200 },
+      { "building": "Fusion Building", "kWh": 3100 },
+      { "building": "Kimmeridge House", "kWh": 1250 },
+      { "building": "Poole Gateway Building", "kWh": 2800 },
+      { "building": "Poole House", "kWh": 1950 },
+      { "building": "SMCL", "kWh": 4200 },
+      { "building": "Student Centre", "kWh": 3800 },
+      { "building": "Weymouth House", "kWh": 1650 }
+    ],
+    "campusTotal": 22800
+  },
+  "weekly": {
+    "totals": [
+      { "building": "Christchurch House", "kWh": 12950 },
+      { "building": "Dorset House", "kWh": 15400 },
+      { "building": "Fusion Building", "kWh": 21700 },
+      { "building": "Kimmeridge House", "kWh": 8750 },
+      { "building": "Poole Gateway Building", "kWh": 19600 },
+      { "building": "Poole House", "kWh": 13650 },
+      { "building": "SMCL", "kWh": 29400 },
+      { "building": "Student Centre", "kWh": 26600 },
+      { "building": "Weymouth House", "kWh": 11550 }
+    ],
+    "campusTotal": 159600
+  },
+  "monthly": {
+    "totals": [
+      { "building": "Christchurch House", "kWh": 55800 },
+      { "building": "Dorset House", "kWh": 61600 },
+      { "building": "Fusion Building", "kWh": 86800 },
+      { "building": "Kimmeridge House", "kWh": 35000 },
+      { "building": "Poole Gateway Building", "kWh": 78400 },
+      { "building": "Poole House", "kWh": 54600 },
+      { "building": "SMCL", "kWh": 117600 },
+      { "building": "Student Centre", "kWh": 106400 },
+      { "building": "Weymouth House", "kWh": 46200 }
+    ],
+    "campusTotal": 638400
+  },
+  "yearly": {
+    "totals": [
+      { "building": "Christchurch House", "kWh": 669600 },
+      { "building": "Dorset House", "kWh": 739200 },
+      { "building": "Fusion Building", "kWh": 1041600 },
+      { "building": "Kimmeridge House", "kWh": 420000 },
+      { "building": "Poole Gateway Building", "kWh": 940800 },
+      { "building": "Poole House", "kWh": 655200 },
+      { "building": "SMCL", "kWh": 1411200 },
+      { "building": "Student Centre", "kWh": 1276800 },
+      { "building": "Weymouth House", "kWh": 554400 }
+    ],
+    "campusTotal": 7660800
+  }
+}
