@@ -54,7 +54,9 @@ const OverviewPage = () => {
         {/* Energy Use by Building */}
         <div className="md:col-span-3 bg-white p-4 rounded-lg shadow">
           <h2 className="text-xl font-light tracking-wide mb-4">Energy Use by Building</h2>
-          <BarGraph data={overallBuildingEnergy.yearly.totals}/>        
+          <BarGraph data={
+            [...overallBuildingEnergy.yearly.totals].sort((a, b) => b.kWh - a.kWh)
+            }/>        
         </div>
 
       {/* Overall Stats */}

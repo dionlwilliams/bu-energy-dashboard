@@ -5,15 +5,15 @@ const CustomTooltip = ({ active, payload, label }) => {
     if (active && payload && payload.length) {
       return (
         <div className="bg-white bg-opacity-30 p-4 rounded-md shadow">
-          <p className="text-sm font-normal text-neutral-900">{label}</p>
-          <p className="text-base font-light text-neutral-600">{`${payload[0].value} kWh`}</p>
+          <p className="text-sm font-normal text-neutral-900">{payload[0].payload.name}</p>
+          <p className="text-base font-light text-neutral-600">{`Energy Used: ${payload[0].value} kWh`}</p>
         </div>
-      );
+      )
     }
-    return null;
-  };
+    return null
+  }
 
-const COLOURS2 = ["#6366F1", "#F59E0B", "#10B981", "#9CA3AF"]
+const COLOURS = ["#6366F1", "#F59E0B", "#10B981", "#9CA3AF"]
 
 const groupEnergyData = (rawData) => {
     const grouped = {
@@ -47,7 +47,7 @@ const PieGraph = ({data}) => {
     return ( 
         <div className="w-full h-80">
             <ResponsiveContainer width={"100%"} height={"100%"}>
-                <PieChart>
+                <PieChart margin={{ top: 20, right: 30, left: 10, bottom: 10 }}>
                     <Pie
                         data={groupedData} 
                         dataKey={"value"} 
@@ -63,7 +63,7 @@ const PieGraph = ({data}) => {
                         {data.map((entry, index) => (
                             <Cell
                             key={`cell-${index}`} 
-                            fill={COLOURS2[index % COLOURS2.length]}
+                            fill={COLOURS[index % COLOURS.length]}
                             />
 
                         ))}

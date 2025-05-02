@@ -1,5 +1,4 @@
 import { ResponsiveContainer, AreaChart, Area, XAxis, YAxis, Tooltip} from "recharts";
-import { motion } from "framer-motion";
 import React from 'react'
 
 const CustomTooltip = ({ active, payload, label }) => {
@@ -9,16 +8,16 @@ const CustomTooltip = ({ active, payload, label }) => {
         <p className="text-sm font-normal text-neutral-900">{label}</p>
         <p className="text-base font-light text-neutral-600">{`Energy Used: ${payload[0].value} kWh`}</p>
       </div>
-    );
+    )
   }
-  return null;
-};
+  return null
+}
 
 const LineGraph = ({data}) => {
   return (
     <div className="h-65">
       <ResponsiveContainer width={"100%"} height={"100%"}>
-        <AreaChart data={data}>
+        <AreaChart data={data} margin={{ top: 20, right: 30, left: 10, bottom: 10 }}>
           <defs>
             <linearGradient id="colourEnergy" x1="0" y1="0" x2="0" y2="1">
             <stop offset="5%" stopColor="#8884d8" stopOpacity={0.7}/>
@@ -35,7 +34,7 @@ const LineGraph = ({data}) => {
                 type={'monotone'}
                 dataKey={'kWh'}
                 stroke="#6366F1"
-                fill={"url(#colourEnergy"}
+                fill={"url(#colourEnergy)"}
                 fillOpacity={1}
               />
         </AreaChart>
