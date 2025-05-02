@@ -53,6 +53,7 @@ const BarGraph = ({data}) => {
           <YAxis tick={{ fill: "#6B7280", fontSize: 12 }} stroke="#CECECE"/>
           <Tooltip
             content={CustomTooltip}
+            cursor={{ fill: "#F2F2F2"}}
           />
           <Bar 
             dataKey="kWh" 

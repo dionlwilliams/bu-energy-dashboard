@@ -4,7 +4,10 @@ import PieGraph from '../components/overview/PieGraph'
 import BarGraph from '../components/overview/BarGraph'
 import overallEnergy from '../tempData/overallEnergy.json'
 import overallEnergyTypes from '../tempData/overallEnergyTypes.json';
-import overallBuildingEnergy from '../tempData/overallBuildingEnergy.json';
+import overallBuildingEnergy from '../tempData/overallBuildingEnergy.json'
+import { calculateRenewablePercentage } from '../utils/environmentalImpact'
+
+const renewablePercentage = calculateRenewablePercentage(overallEnergyTypes.yearly)
 
 const OverviewPage = () => {
   return (
@@ -36,7 +39,7 @@ const OverviewPage = () => {
         <div className="bg-white p-4 rounded-lg shadow">
           <h2 className="text-xl font-light tracking-wide mb-4 text-center">Our Environmental Impact</h2>
           <div className="space-y-4 flex flex-col items-center">
-            <div className="h-12 bg-gray-300 rounded w-3/4"></div> {/* Renewable Energy & Bar */}
+            <div className="h-12 bg-gray-300 rounded w-3/4">{renewablePercentage.toFixed(0)}%</div> {/* Renewable Energy & Bar */}
             <div className="h-12 bg-gray-300 rounded w-3/4"></div> {/* CO2 Saved */}
             <div className="h-12 bg-gray-300 rounded w-3/4"></div> {/* Tree Equivalent */}
           </div>
