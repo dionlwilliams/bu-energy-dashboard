@@ -6,6 +6,7 @@ import overallEnergy from '../tempData/overallEnergy.json'
 import overallEnergyTypes from '../tempData/overallEnergyTypes.json';
 import overallBuildingEnergy from '../tempData/overallBuildingEnergy.json'
 import { calculateRenewablePercentage } from '../utils/environmentalImpact'
+import { TreePine, Weight } from 'lucide-react';
 
 const renewablePercentage = calculateRenewablePercentage(overallEnergyTypes.yearly)
 
@@ -36,12 +37,44 @@ const OverviewPage = () => {
         </div>
 
         {/* Environmental Impact Stats Right */}
-        <div className="bg-white p-4 rounded-lg shadow">
+        <div className="bg-white p-4 flex h-full flex-col rounded-lg shadow">
           <h2 className="text-xl font-light tracking-wide mb-4 text-center">Our Environmental Impact</h2>
-          <div className="space-y-4 flex flex-col items-center">
-            <div className="h-12 bg-gray-300 rounded w-3/4">{renewablePercentage.toFixed(0)}%</div> {/* Renewable Energy & Bar */}
-            <div className="h-12 bg-gray-300 rounded w-3/4"></div> {/* CO2 Saved */}
-            <div className="h-12 bg-gray-300 rounded w-3/4"></div> {/* Tree Equivalent */}
+          <div className="flex flex-col h-full w-full space-y-4 text-l tracking-wider">
+            <div className="h-1/3 w-3/4 mx-auto flex items-center flex-col">
+              <div className="flex justify-center mb-2">
+                <span className="font-medium text-green-500 mr-1">
+                {renewablePercentage.toFixed(0)}% 
+                </span>
+                <span className="font-medium text-gray-700">
+                Renewable Energy
+                </span>
+              </div>
+              <div className="w-3/4 bg-gray-200 rounded-md h-10 items-center justify-center">
+                <div 
+                className="bg-green-500 h-10 rounded-md transition-all duration-500" 
+                style={{ width: `${renewablePercentage}%` }}
+                aria-valuenow={renewablePercentage}
+                aria-valuemin="0"
+                aria-valuemax="100"
+                />
+              </div>
+            </div>
+            <div className="h-1/3 w-3/4 mx-auto flex flex-col items-center justify-center font-light">
+              <span className='m-2 mb-4'>
+                x tonnes of CO₂ saved this week
+              </span>
+              <span >
+                <Weight />
+              </span>
+            </div>
+            <div className="h-1/3 w-3/4 mx-auto flex flex-col items-center justify-center font-light">
+            <span className='m-2 mb-4'>
+            Equivalent to planting x trees
+            </span>
+            <span>
+              <TreePine />
+            </span>
+            </div>
           </div>
         </div>
       </div>
