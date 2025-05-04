@@ -5,10 +5,10 @@ import BarGraph from '../components/overview/BarGraph'
 import overallEnergy from '../tempData/overallEnergy.json'
 import overallEnergyTypes from '../tempData/overallEnergyTypes.json';
 import overallBuildingEnergy from '../tempData/overallBuildingEnergy.json'
-import { calculateRenewablePercentage } from '../utils/environmentalImpact'
+import { calculateEnvironmentalImpact } from '../utils/environmentalImpact'
 import { TreePine, Weight } from 'lucide-react';
 
-const renewablePercentage = calculateRenewablePercentage(overallEnergyTypes.yearly)
+const environmentalImpact = calculateEnvironmentalImpact(overallEnergyTypes.yearly)
 
 const OverviewPage = () => {
   return (
@@ -43,7 +43,7 @@ const OverviewPage = () => {
             <div className="h-1/3 w-3/4 mx-auto flex items-center flex-col">
               <div className="flex justify-center mb-2">
                 <span className="font-medium text-green-500 mr-1">
-                {renewablePercentage.toFixed(0)}% 
+                {environmentalImpact.renewablePercentage}% 
                 </span>
                 <span className="font-medium text-gray-700">
                 Renewable Energy
@@ -52,8 +52,8 @@ const OverviewPage = () => {
               <div className="w-3/4 bg-gray-200 rounded-md h-10 items-center justify-center">
                 <div 
                 className="bg-green-500 h-10 rounded-md transition-all duration-500" 
-                style={{ width: `${renewablePercentage}%` }}
-                aria-valuenow={renewablePercentage}
+                style={{ width: `${environmentalImpact.renewablePercentage}%` }}
+                aria-valuenow={environmentalImpact.renewablePercentage}
                 aria-valuemin="0"
                 aria-valuemax="100"
                 />
@@ -61,7 +61,7 @@ const OverviewPage = () => {
             </div>
             <div className="h-1/3 w-3/4 mx-auto flex flex-col items-center justify-center font-light">
               <span className='m-2 mb-4'>
-                x tonnes of CO₂ saved this week
+                {`${environmentalImpact.co2Saved} kgs of CO₂ saved this year`}
               </span>
               <span >
                 <Weight />
@@ -69,7 +69,7 @@ const OverviewPage = () => {
             </div>
             <div className="h-1/3 w-3/4 mx-auto flex flex-col items-center justify-center font-light">
             <span className='m-2 mb-4'>
-            Equivalent to planting x trees
+            {`Equivalent to planting ${environmentalImpact.treeEquivalents} trees`}
             </span>
             <span>
               <TreePine />
