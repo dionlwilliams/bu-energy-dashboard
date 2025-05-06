@@ -6,7 +6,7 @@ import overallEnergy from '../tempData/overallEnergy.json'
 import overallEnergyTypes from '../tempData/overallEnergyTypes.json';
 import overallBuildingEnergy from '../tempData/overallBuildingEnergy.json'
 import { calculateEnvironmentalImpact } from '../utils/environmentalImpact'
-import { TreePine, Weight } from 'lucide-react';
+import EnvironmentalImpactCard from '../components/overview/EnvironmentalImpactCard'
 
 const environmentalImpact = calculateEnvironmentalImpact(overallEnergyTypes.yearly)
 
@@ -37,48 +37,9 @@ const OverviewPage = () => {
         </div>
 
         {/* Environmental Impact Stats Right */}
-        <div className="bg-white p-4 flex h-full flex-col rounded-lg shadow">
-          <h2 className="text-xl font-light tracking-wide mb-4 text-center">Our Environmental Impact</h2>
-          <div className="flex flex-col h-full w-full space-y-4 text-l tracking-wider">
-            <div className="h-1/3 w-3/4 mx-auto flex items-center flex-col">
-              <div className="flex justify-center mb-2">
-                <span className="font-medium text-green-500 mr-1">
-                {environmentalImpact.renewablePercentage}% 
-                </span>
-                <span className="font-medium text-gray-700">
-                Renewable Energy
-                </span>
-              </div>
-              <div className="w-3/4 bg-gray-200 rounded-md h-10 items-center justify-center">
-                <div 
-                className="bg-green-500 h-10 rounded-md transition-all duration-500" 
-                style={{ width: `${environmentalImpact.renewablePercentage}%` }}
-                aria-valuenow={environmentalImpact.renewablePercentage}
-                aria-valuemin="0"
-                aria-valuemax="100"
-                />
-              </div>
-            </div>
-            <div className="h-1/3 w-3/4 mx-auto flex flex-col items-center justify-center font-light">
-              <span className='m-2 mb-4'>
-                {`${environmentalImpact.co2Saved} kgs of CO₂ saved this year`}
-              </span>
-              <span >
-                <Weight />
-              </span>
-            </div>
-            <div className="h-1/3 w-3/4 mx-auto flex flex-col items-center justify-center font-light">
-            <span className='m-2 mb-4'>
-            {`Equivalent to planting ${environmentalImpact.treeEquivalents} trees`}
-            </span>
-            <span>
-              <TreePine />
-            </span>
-            </div>
-          </div>
-        </div>
+        
+        <EnvironmentalImpactCard environmentalImpact={environmentalImpact} />
       </div>
-
       {/* Bottom Row */}
       <div className="flex-1 grid grid-cols-1 md:grid-cols-6 gap-8 pl-8 pb-4 pr-8 pt-4">
         {/* Campus Energy Pie Chart */}
@@ -106,13 +67,13 @@ const OverviewPage = () => {
             <p className="text-gray-600 font-bold">x kWh/m²</p>
           </div>
           <div className='bg-white p-4 rounded-lg shadow'>
-            <h3 className="text-lg font-light tracking-wide">Change from Last Week</h3>
-            <p className="text-gray-600 font-bold">x% decrease</p>
+            <h3 className="text-lg font-light tracking-wide">Estimated Energy Cost</h3>
+            <p className="text-gray-600 font-bold">£x this year </p>
           </div>
         </div>
       </div>
     </div>
-    </div>
+  </div>
   )
 }
 

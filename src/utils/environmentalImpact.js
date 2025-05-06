@@ -26,7 +26,7 @@ export const calculateEnvironmentalImpact = (energyData) => {
 
     return {
         renewablePercentage: (renewableEnergy / totalEnergy * 100).toFixed(0),
-        co2Saved: (co2Saved).toFixed(0),
-        treeEquivalents: (co2Saved / TREE_CO2_SEQUESTRATION).toFixed(0)
+        co2Saved: Math.round(co2Saved).toLocaleString(),
+        treeEquivalents: Math.round(co2Saved / TREE_CO2_SEQUESTRATION).toLocaleString()
     }
 }
