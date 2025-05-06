@@ -33,10 +33,11 @@ const BarGraph = ({data}) => {
   }))
 
     return(
-        <div className="w-full h-80">
+        <div className="w-full h-[35vh] min-h-[320px] relative">
         <ResponsiveContainer width="100%" height="100%">
         <BarChart
-          data={chartData} margin={{ top: 20, right: 30, left: 10, bottom: 40 }}
+          data={chartData} 
+          margin={{ top: 20, right: 20, left: 30, bottom: 45 }}
         >
           <defs>
             <linearGradient id="barGradient" x1="0" y1="0" x2="0" y2="1">
@@ -46,14 +47,35 @@ const BarGraph = ({data}) => {
           </defs>
           <XAxis 
             dataKey="building" 
-            tick={{ fontSize: 12, fill: "#6B7280", angle: -30, textAnchor: "end"}} 
+            tick={{ 
+              fontSize: 12, 
+              fill: "#6B7280", 
+              angle: -30, 
+              textAnchor: "end"
+            }} 
             stroke="#CECECE" 
             interval={0}
           />
-          <YAxis tick={{ fill: "#6B7280", fontSize: 12 }} stroke="#CECECE"/>
+          <YAxis 
+          tick={{ fill: "#6B7280", fontSize: 12 }} 
+          stroke="#CECECE"
+          padding={{ left: 10}}
+          label = {{
+            value: "kWh/m²",
+            angle: -90,
+            position: "left",
+            offset: 5,
+            style: {
+              textAnchor: "middle",
+              fontSize: 14,
+              fill: "#4B5563"
+            }
+          }}
+          />
           <Tooltip
             content={CustomTooltip}
             cursor={{ fill: "#F2F2F2"}}
+            offset={20}
           />
           <Bar 
             dataKey="kWh" 

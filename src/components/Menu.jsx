@@ -14,7 +14,7 @@ const Menu = () => {
   const { pathname } = useLocation()
 
   return (
-      <div className='h-full bg-neutral-200 bg-opacity-50 p-4 flex flex-col w-100'>
+      <div className='h-full bg-neutral-200 bg-opacity-50 p-4 flex flex-col w-1/7'>
         <div className='h-1/9 pl-4 content-center'>
           <p className='text-2xl font-semibold'>BU Energy Dashboard</p>
         </div>

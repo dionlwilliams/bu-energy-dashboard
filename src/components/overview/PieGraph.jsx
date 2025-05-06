@@ -1,5 +1,4 @@
 import { ResponsiveContainer,  PieChart, Pie, Cell, Tooltip, Legend} from "recharts"
-import React from 'react'
 
 const CustomTooltip = ({ active, payload, label }) => {
     if (active && payload && payload.length) {
@@ -45,7 +44,7 @@ const PieGraph = ({data}) => {
     const groupedData = groupEnergyData(data)
 
     return ( 
-        <div className="w-full h-80">
+        <div className="w-full h-[30vh] min-h-[300px] relative">
             <ResponsiveContainer width={"100%"} height={"100%"}>
                 <PieChart margin={{ top: 20, right: 30, left: 10, bottom: 10 }}>
                     <Pie
@@ -54,34 +53,40 @@ const PieGraph = ({data}) => {
                         nameKey={"type"} 
                         cx={"50%"} 
                         cy={"50%"}
+                        outerRadius={"80%"}
                         labelLine={false}
                         strokeWidth={3}
-                        label={({ name, percent }) =>
-                        `${name}: ${(percent * 100).toFixed(0)}%`
+                        label={({ name, percent }) => 
+                            `${(percent * 100).toFixed(0)}%`
                         }
                     >
-                        {data.map((entry, index) => (
+                        {groupedData.map((entry, index) => (
                             <Cell
-                            key={`cell-${index}`} 
+                            key={`cell-${index}`}
                             fill={COLOURS[index % COLOURS.length]}
                             />
-
                         ))}
                     </Pie>
                     <Tooltip 
-           content={<CustomTooltip />}
-           cursor={{ fill: 'rgba(0, 0, 0, 0.05)' }} 
-          />
-          <Legend 
-            layout="horizontal"
-            verticalAlign="bottom"
-            align="center"
-            wrapperStyle={{ paddingTop: '20px' }}
-          />
+                    content={<CustomTooltip />}
+                    cursor={{ fill: 'rgba(0, 0, 0, 0.05)' }} 
+                    />
+                    <Legend 
+                    layout="horizontal"
+                    verticalAlign="bottom"
+                    align="center"
+                    wrapperStyle={{ 
+                        paddingTop: '10px',
+                        bottom: '-10px',
+                        fontSize: '0.9rem'
+                    }}
+                    formatter={(value) => (
+                        <span className="text-lg font-normal">{value}</span>
+                    )}
+                    />
                 </PieChart>
-                </ResponsiveContainer>
-                </div>
-        
+            </ResponsiveContainer>
+        </div>     
     )
 }
 
