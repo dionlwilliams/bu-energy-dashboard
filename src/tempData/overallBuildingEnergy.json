@@ -7,7 +7,7 @@
       { "building": "Kimmeridge House", "kWh": 1250 },
       { "building": "Poole Gateway", "kWh": 2800 },
       { "building": "Poole House", "kWh": 1950 },
-      { "building": "SMCL", "kWh": 4200 },
+      { "building": "Sir Michael Cobham Library", "kWh": 4200 },
       { "building": "Student Centre", "kWh": 3800 },
       { "building": "Weymouth House", "kWh": 1650 }
     ]
@@ -20,7 +20,7 @@
       { "building": "Kimmeridge House", "kWh": 8750 },
       { "building": "Poole Gateway", "kWh": 19600 },
       { "building": "Poole House", "kWh": 13650 },
-      { "building": "SMCL", "kWh": 29400 },
+      { "building": "Sir Michael Cobham Library", "kWh": 29400 },
       { "building": "Student Centre", "kWh": 26600 },
       { "building": "Weymouth House", "kWh": 11550 }
     ]
@@ -33,7 +33,7 @@
       { "building": "Kimmeridge House", "kWh": 35000 },
       { "building": "Poole Gateway", "kWh": 78400 },
       { "building": "Poole House", "kWh": 54600 },
-      { "building": "SMCL", "kWh": 117600 },
+      { "building": "Sir Michael Cobham Library", "kWh": 117600 },
       { "building": "Student Centre", "kWh": 106400 },
       { "building": "Weymouth House", "kWh": 46200 }
     ]
@@ -46,7 +46,7 @@
       { "building": "Kimmeridge House", "kWh": 420000 },
       { "building": "Poole Gateway", "kWh": 940800 },
       { "building": "Poole House", "kWh": 655200 },
-      { "building": "SMCL", "kWh": 1411200 },
+      { "building": "Sir Michael Cobham Library", "kWh": 1411200 },
       { "building": "Student Centre", "kWh": 1276800 },
       { "building": "Weymouth House", "kWh": 554400 }
     ]

@@ -19,7 +19,7 @@ const buildingNameMap = {
   "Kimmeridge House": "Kimmeridge",
   "Poole Gateway": "Poole Gateway",
   "Poole House": "Poole House",
-  "SMCL": "SMCL",
+  "Sir Michael Cobham Library": "SMCL",
   "Student Centre": "Student Centre",
   "Weymouth House": "Weymouth",
 }  
