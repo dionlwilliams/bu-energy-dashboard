@@ -6,9 +6,13 @@ import overallEnergy from '../tempData/overallEnergy.json'
 import overallEnergyTypes from '../tempData/overallEnergyTypes.json';
 import overallBuildingEnergy from '../tempData/overallBuildingEnergy.json'
 import { calculateEnvironmentalImpact } from '../utils/environmentalImpact'
+import { calculateEnergyConsumption } from '../utils/energyConsumption'
 import EnvironmentalImpactCard from '../components/overview/EnvironmentalImpactCard'
+import EnergyStatCard from '../components/overview/EnergyStatCard'
+import { Zap, School, Coins } from 'lucide-react'
 
 const environmentalImpact = calculateEnvironmentalImpact(overallEnergyTypes.yearly)
+const energyStats = calculateEnergyConsumption(overallBuildingEnergy.yearly, overallEnergyTypes.yearly)
 
 const OverviewPage = () => {
   return (
@@ -61,19 +65,25 @@ const OverviewPage = () => {
         </div>
 
       {/* Overall Stats */}
-      <div className="space-y-6">
-          <div className='bg-white p-4 rounded-lg shadow'>
-            <h3 className="text-lg font-light tracking-wide">Energy Used This Week</h3>
-            <p className="text-gray-600 font-bold">x kWh</p>
-          </div>
-          <div className='bg-white p-4 rounded-lg shadow'>
-            <h3 className="text-lg font-light tracking-wide">Average per Building</h3>
-            <p className="text-gray-600 font-bold">x kWh/m²</p>
-          </div>
-          <div className='bg-white p-4 rounded-lg shadow'>
-            <h3 className="text-lg font-light tracking-wide">Estimated Energy Cost</h3>
-            <p className="text-gray-600 font-bold">£x this year </p>
-          </div>
+      <div className="space-y-4 flex flex-col">
+          <EnergyStatCard
+            title="Energy Used This Year"
+            value={energyStats.yearlyEnergy}
+            icon={Zap}
+            color={"text-yellow-300"}
+          />
+          <EnergyStatCard
+            title="Average Energy Use Per Building"
+            value={energyStats.averagePerBuilding}
+            icon={School}
+            color={"text-indigo-500"}
+          />
+          <EnergyStatCard
+            title="Estimated Energy Cost This Year"
+            value={energyStats.estimatedCost}
+            icon={Coins}
+            color={"text-emerald-500"}
+            />
         </div>
       </div>
     </div>

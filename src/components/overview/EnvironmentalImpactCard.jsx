@@ -34,35 +34,31 @@ const environmentalImpactCard = ({environmentalImpact}) => {
 
             {/*C02 section*/}
             <div className="flex-1 flex flex-col items-center justify-center font-light px-2">
+                <div className="flex items-center justify-center mb-4" >
+                    <Weight 
+                        color='#57534e'
+                        className="
+                            h-6 w-6 
+                            sm:h-9 sm:w-9 
+                            md:h-11 md:w-11
+                            lg:h-13 lg:w-13
+                            xl:h-14 xl:w-14
+                            transition-all duration-200
+                        " />
+                </div>
               <span className='text-center text-sm xl:text-lg mb-1 xl:mb-2'>
                 <span className='font-semibold'>
                     {environmentalImpact.co2Saved} 
                     </span> kgs of CO₂ saved this year
               </span>
-              <div className="flex items-center justify-center" >
-                <Weight 
-                    color='#292524'
-                    className="
-                        h-6 w-6 
-                        sm:h-9 sm:w-9 
-                        md:h-11 md:w-11
-                        lg:h-13 lg:w-13
-                        xl:h-14 xl:w-14
-                        transition-all duration-200
-                    " />
-              </div>
+              
             </div>
 
             {/*Tree equivalent section*/}
             <div className="flex-1 flex flex-col items-center justify-center font-light px-2 mb-2">
-                <span className='text-center text-sm xl:text-lg mb-1 xl:mb-2'>
-                    Equivalent to planting <span className='font-semibold'>
-                        {environmentalImpact.treeEquivalents}
-                    </span> trees
-                </span>
-                <div className="flex items-center justify-center" >
+                <div className="flex items-center justify-center mb-4" >
                     <TreePine 
-                        color='#292524'
+                        color='#22c55e'
                         className="
                         h-6 w-6 
                         sm:h-9 sm:w-9 
@@ -72,6 +68,12 @@ const environmentalImpactCard = ({environmentalImpact}) => {
                         transition-all duration-200
                     " />
                 </div>
+                <span className='text-center text-sm xl:text-lg mb-1 xl:mb-2'>
+                    Equivalent to planting <span className='font-semibold'>
+                        {environmentalImpact.treeEquivalents}
+                    </span> trees
+                </span>
+                
             </div>
           </div>
         </div>

@@ -10,8 +10,7 @@
       { "building": "SMCL", "kWh": 4200 },
       { "building": "Student Centre", "kWh": 3800 },
       { "building": "Weymouth House", "kWh": 1650 }
-    ],
-    "campusTotal": 22800
+    ]
   },
   "weekly": {
     "totals": [
@@ -24,8 +23,7 @@
       { "building": "SMCL", "kWh": 29400 },
       { "building": "Student Centre", "kWh": 26600 },
       { "building": "Weymouth House", "kWh": 11550 }
-    ],
-    "campusTotal": 159600
+    ]
   },
   "monthly": {
     "totals": [
@@ -38,8 +36,7 @@
       { "building": "SMCL", "kWh": 117600 },
       { "building": "Student Centre", "kWh": 106400 },
       { "building": "Weymouth House", "kWh": 46200 }
-    ],
-    "campusTotal": 638400
+    ]
   },
   "yearly": {
     "totals": [
@@ -52,7 +49,6 @@
       { "building": "SMCL", "kWh": 1411200 },
       { "building": "Student Centre", "kWh": 1276800 },
       { "building": "Weymouth House", "kWh": 554400 }
-    ],
-    "campusTotal": 7660800
+    ]
   }
 }
