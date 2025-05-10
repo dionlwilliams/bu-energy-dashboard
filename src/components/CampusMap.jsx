@@ -33,7 +33,7 @@ const CampusMap = () => {
       ], []);
   
     return (
-        <div className='w-full h-screen'>
+        <div className='w-full h-screen ' style={{ position: 'relative'}}>
           <DeckGL
           initialViewState={viewport}
           layers={layers}
