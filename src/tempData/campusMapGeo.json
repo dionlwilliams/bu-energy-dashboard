@@ -352,7 +352,7 @@
       {
         "type": "Feature",
         "properties": {
-          "name": "Student Center",
+          "name": "Student Centre",
           "color": [200, 50, 80, 250]
         },
         "geometry": {

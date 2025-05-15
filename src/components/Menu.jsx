@@ -10,7 +10,7 @@ const MENU_LIST = [
     {name:"Leaderboard", icon:MdOutlineLeaderboard, color:"#201d1d", path:"/leaderboard"}
 ];
 
-const Menu = () => {
+const Menu = ({environmentalImpact}) => {
   const { pathname } = useLocation()
 
   return (

@@ -1,30 +1,62 @@
-import React, { useState } from 'react'
+import React, { use, useMemo, useState } from 'react'
 import DeckGL from '@deck.gl/react'
 import { Map } from 'react-map-gl/mapbox'
 import { GeoJsonLayer} from 'deck.gl'
 import 'mapbox-gl/dist/mapbox-gl.css'
 import campusData from '../tempData/campusMapGeo.json'
 
-
-const CampusMap = () => {
+const CampusMap = ({buildingData}) => {
   const [selectedBuilding, setSelectedBuilding] = useState(null)
   const [hoveredInfo, setHoveredInfo] = useState(null)
   
   const [viewport, setViewport] = useState({
         latitude: 50.742719,
         longitude: -1.895220,
-        zoom: 18,
+        zoom: 17.5,
         bearing: 17
     })
+
+    const energyLookup = useMemo(() => {
+      if (!buildingData?.totals) {
+        console.log(buildingData)
+        return {}
+      }
+
+      return buildingData.totals.reduce((acc, item) => {
+        acc[item.building] = item.kWh
+        return acc
+      }, {})
+    }, [buildingData])
+
+    const processedCampusData = useMemo(() => {
+      if (!campusData?.features) return null
+
+      return {
+        ...campusData,
+        features: campusData.features.map(feature => {
+          const buildingName = feature.properties.name
+          const energyUsage = energyLookup[buildingName] || 0
+          
+          return {
+            ...feature,
+            properties: {
+              ...feature.properties,
+              kWh: energyUsage,
+            },
+          }
+        }),
+      }
+    }, [campusData, energyLookup])
+    
 
     const layers = [
         new GeoJsonLayer({
           id: 'buildings-fill',
-          data: campusData,
+          data: processedCampusData,
           filled: true,
           wireframe: false,
-          getFillColor: d => d.properties.color,
           getLineColor: [0, 0, 0, 0],
+          getFillColor: d => d.properties.color,
           pickable: true,
           onHover: info => setHoveredInfo(info),
           onClick: info => setSelectedBuilding(info.object),
@@ -56,7 +88,7 @@ const CampusMap = () => {
 
           <div className='relative'> 
             <div className='text-gray-800 font-light'>{info.name}</div>
-            <div className='text-gray-600 font-light'>placeholder</div>
+            <div className='text-gray-600 font-light'>{info.kWh?.toLocaleString()}</div>
           </div>
 
           <div className='absolute w-3 h-3 left-1/2 bg-white border-b border-r border-gray-200 transform rotate-45 top-full -mt-1.5
