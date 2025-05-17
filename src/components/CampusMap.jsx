@@ -155,8 +155,11 @@ const CampusMap = ({buildingData}) => {
 
     return (
       <div className='absolute bottom-6 right-6 bg-white p-4 rounded-lg shadow-lg min-w-[300px]'>
-        <div className='text-base font-light text-gray-600 mb-2 text-center tracking-wide'>
-          Annual Energy Use Intensity (kWh/m²)
+        <div className='text-lg font-light text-gray-800 mb-2 text-center tracking-wide'>
+          Energy Use Intensity
+          <div className='text-sm text-gray-600 mt-1'>
+      (kWh/m² annually)
+    </div>
         </div>
 
         <div className='flex h-4 w-full rounded overflow-hidden'>
