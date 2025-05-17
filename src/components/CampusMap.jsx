@@ -41,8 +41,11 @@ const CampusMap = ({buildingData}) => {
       if (!campusData?.features) return null
 
       const energyValues = Object.values(energyLookup)
-      const minEnergy = Math.min(...energyValues)
-      const maxEnergy = Math.max(...energyValues)
+      const rawMin = Math.min(...energyValues)
+      const rawMax = Math.max(...energyValues)
+
+      const minEnergy = Math.floor(rawMin / 10) * 10
+      const maxEnergy = Math.ceil(rawMax / 10) * 10
       const energyRange = maxEnergy - minEnergy
 
       return {
@@ -52,11 +55,10 @@ const CampusMap = ({buildingData}) => {
           const energyUsage = energyLookup[buildingName] || 0
           
           let colourIndex = 0
-          if (energyRange > 0) {
-            const ratio = (energyUsage - minEnergy) / energyRange
-            colourIndex = Math.floor(ratio * 3)
-            colourIndex = Math.min(3, Math.max(0, colourIndex))
-          }
+          if (energyUsage <= 150) colourIndex = 0
+          else if (energyUsage <= 180) colourIndex = 1
+          else if (energyUsage <= 210) colourIndex = 2
+          else colourIndex = 3
           return {
             ...feature,
             properties: {
@@ -144,12 +146,44 @@ const CampusMap = ({buildingData}) => {
     }
 
     const renderLegend = () => {
-      const energyValues = Object.values(energyLookup)
-      const minEnergy = Math.min(...energyValues)
-      const maxEnergy = Math.max(...energyValues)
+      const rangeLabels = [
+        '120-150',
+        '151-180',
+        '181-210',
+        '211-250'
+      ];
 
-      return (
-        <div className='absolute bottom-4 right-4'
+    return (
+      <div className='absolute bottom-6 right-6 bg-white p-4 rounded-lg shadow-lg min-w-[300px]'>
+        <div className='text-base font-light text-gray-600 mb-2 text-center tracking-wide'>
+          Annual Energy Use Intensity (kWh/m²)
+        </div>
+
+        <div className='flex h-4 w-full rounded overflow-hidden'>
+          {COLOUR_SCALE.map((color, index) => (
+            <div
+              key={index}
+              className='flex-1'
+              style={{
+                backgroundColor: `rgba(${color.join(',')})`,
+                width: `${100 / COLOUR_SCALE.length}%`
+              }}
+            />
+          ))}
+        </div>
+        
+        <div className='flex justify-between mt-2 text-xs text-gray-600 tracking-wide'>
+          {rangeLabels.map((label, index) => (
+            <span
+            key={index}
+            className='text-center'
+            style={{
+              width: `${100 / COLOUR_SCALE.length}%`}}>
+              {label}
+            </span>
+          ))}
+        </div>
+    </div>
       )
     }
   
@@ -163,10 +197,11 @@ const CampusMap = ({buildingData}) => {
         <Map 
             mapboxAccessToken={import.meta.env.VITE_MAPBOX_ACCESS_TOKEN}
             style={{ width: '100%', height: '100%'}}
-            mapStyle={"mapbox://styles/dionlou/cmae457b600qq01qyalrd3uof"}
+            mapStyle={'mapbox://styles/dionlou/cmae457b600qq01qyalrd3uof'}
         />
         </DeckGL>
         {renderTooltip()}
+        {renderLegend()}
         </div>
   )
 }

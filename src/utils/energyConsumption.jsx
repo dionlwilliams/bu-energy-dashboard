@@ -24,7 +24,7 @@ export const calculateEnergyConsumption = (buildingData, energyTypeData) => {
 
     return {
         yearlyEnergy: `${(yearlyEnergy).toLocaleString()} kWh/m²`,
-        averagePerBuilding: `${Math.round(averagePerBuilding).toLocaleString()}kWh/m²`,
+        averagePerBuilding: `${Math.round(averagePerBuilding).toLocaleString()} kWh/m²`,
         estimatedCost: `£${Math.round(estimatedCost).toLocaleString()}`
     }
 }
