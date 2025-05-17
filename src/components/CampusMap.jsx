@@ -142,6 +142,16 @@ const CampusMap = ({buildingData}) => {
         </div>
       )
     }
+
+    const renderLegend = () => {
+      const energyValues = Object.values(energyLookup)
+      const minEnergy = Math.min(...energyValues)
+      const maxEnergy = Math.max(...energyValues)
+
+      return (
+        <div className='absolute bottom-4 right-4'
+      )
+    }
   
     return (
         <div className='w-full h-screen ' style={{ position: 'relative'}}>
