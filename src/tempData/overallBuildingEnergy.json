@@ -40,15 +40,15 @@
   },
   "yearly": {
     "totals": [
-      { "building": "Christchurch House", "kWh": 669600 },
-      { "building": "Dorset House", "kWh": 739200 },
-      { "building": "Fusion Building", "kWh": 1041600 },
-      { "building": "Kimmeridge House", "kWh": 420000 },
-      { "building": "Poole Gateway", "kWh": 940800 },
-      { "building": "Poole House", "kWh": 655200 },
-      { "building": "Sir Michael Cobham Library", "kWh": 1411200 },
-      { "building": "Student Centre", "kWh": 1276800 },
-      { "building": "Weymouth House", "kWh": 554400 }
+      { "building": "Christchurch House", "kWh": 671194 },
+      { "building": "Dorset House", "kWh": 498585 },
+      { "building": "Fusion Building", "kWh": 1127522 },
+      { "building": "Kimmeridge House", "kWh": 321395 },
+      { "building": "Poole Gateway", "kWh": 1359810 },
+      { "building": "Poole House", "kWh": 3152546 },
+      { "building": "Sir Michael Cobham Library", "kWh": 970711 },
+      { "building": "Student Centre", "kWh": 445839 },
+      { "building": "Weymouth House", "kWh": 863240 }
     ]
   }
 }

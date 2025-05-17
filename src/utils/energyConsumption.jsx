@@ -12,7 +12,7 @@ const ENERGY_COSTS = {
 export const calculateEnergyConsumption = (buildingData, energyTypeData) => {
     
     const yearlyEnergy = buildingData.totals.reduce(
-        (sum, item) => sum + item.kWh, 0
+        (sum, item) => sum + item.kWhPerSqm, 0
     )
 
     const averagePerBuilding = yearlyEnergy / buildingData.totals.length
@@ -23,8 +23,8 @@ export const calculateEnergyConsumption = (buildingData, energyTypeData) => {
     }, 0)
 
     return {
-        yearlyEnergy: `${(yearlyEnergy / 1000).toLocaleString()}k`,
-        averagePerBuilding: `${Math.round(averagePerBuilding / 1000).toLocaleString()}k`,
+        yearlyEnergy: `${(yearlyEnergy).toLocaleString()} kWh/m²`,
+        averagePerBuilding: `${Math.round(averagePerBuilding).toLocaleString()}kWh/m²`,
         estimatedCost: `£${Math.round(estimatedCost).toLocaleString()}`
     }
 }

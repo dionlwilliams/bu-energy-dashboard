@@ -10,11 +10,30 @@ import { calculateEnergyConsumption } from '../utils/energyConsumption'
 import EnvironmentalImpactCard from '../components/overview/EnvironmentalImpactCard'
 import EnergyStatCard from '../components/overview/EnergyStatCard'
 import { Zap, School, Coins } from 'lucide-react'
+import { normaliseDataset, normaliseEnergyData } from '../utils/energyConversion'
+
+const processedEnergyData = {
+  yearly: normaliseDataset(overallEnergy.yearly, 'campus')
+}
+
+const processedEnergyTypes = {
+  yearly: normaliseDataset(overallEnergyTypes.yearly, 'campus')
+}
+
+const processedBuildingEnergy = {
+  yearly: {
+    totals: overallBuildingEnergy.yearly.totals.map(building =>
+      normaliseEnergyData(building, 'building'))
+  }
+}
 
 const environmentalImpact = calculateEnvironmentalImpact(overallEnergyTypes.yearly)
-const energyStats = calculateEnergyConsumption(overallBuildingEnergy.yearly, overallEnergyTypes.yearly)
+const energyStats = calculateEnergyConsumption(processedBuildingEnergy.yearly, processedEnergyTypes.yearly)
 
 const OverviewPage = () => {
+  console.log(processedEnergyData)
+  console.log(processedBuildingEnergy)
+  console.log(processedEnergyTypes)
   return (
     <div className='flex-1 flex flex-col overflow-auto relative z-10'>
       {/* Heading Bar */}
@@ -38,7 +57,7 @@ const OverviewPage = () => {
         <div className="md:col-span-2 bg-white p-4 rounded-lg shadow ">
           <h2 className="text-xl font-light tracking-wide mb-4 ml-2">Total Energy Use</h2>
           <div className='flex-1 min-h-0 relative'>
-          <LineGraph data={overallEnergy.yearly}/>
+          <LineGraph data={processedEnergyData.yearly}/>
           </div>
         </div>
 
@@ -52,7 +71,7 @@ const OverviewPage = () => {
         <div className="md:col-span-2 bg-white p-4 rounded-lg shadow flex flex-col">
           <h2 className="text-xl font-light tracking-wide mb-4 text-center">What Powers our Campus?</h2>
           <div className='flex-1 min-h-0 relative'>
-          <PieGraph data={overallEnergyTypes.yearly}/>
+          <PieGraph data={processedEnergyTypes.yearly}/>
           </div>
         </div>
 
@@ -60,7 +79,7 @@ const OverviewPage = () => {
         <div className="md:col-span-3 bg-white p-4 rounded-lg shadow">
           <h2 className="text-xl font-light tracking-wide mb-4 ml-2">Energy Use by Building</h2>
           <BarGraph data={
-            [...overallBuildingEnergy.yearly.totals].sort((a, b) => b.kWh - a.kWh)
+            [...processedBuildingEnergy.yearly.totals].sort((a, b) => b.kWhPerSqm - a.kWhPerSqm)
             }/>        
         </div>
 

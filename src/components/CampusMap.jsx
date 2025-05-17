@@ -32,7 +32,7 @@ const CampusMap = ({buildingData}) => {
       }
 
       return buildingData.totals.reduce((acc, item) => {
-        acc[item.building] = item.kWh
+        acc[item.building] = item.kWhPerSqm
         return acc
       }, {})
     }, [buildingData])
@@ -117,13 +117,8 @@ const CampusMap = ({buildingData}) => {
       ]
       
     const renderTooltip = () => {
-      console.log('hoveredInfo', hoveredInfo)
       const info = hoveredInfo?.object?.properties || selectedBuilding?.properties
-      if (!info || !hoveredInfo) {
-        console.log("wttf")
-      }
       if (!info || !hoveredInfo) return null
-      
       
       return (
         <div className='absolute z-10 max-w-xs bg-white border border-gray-200 rounded-xl shadow-lg px-2 text-sm py-2' 
@@ -138,7 +133,7 @@ const CampusMap = ({buildingData}) => {
 
           <div className='relative'> 
             <div className='text-gray-800 font-light'>{info.name}</div>
-            <div className='text-gray-600 font-light'>{info.kWh?.toLocaleString()}</div>
+            <div className='text-gray-600 font-light'>{`${info.kWh?.toLocaleString()} kWh/m²`}</div>
           </div>
 
           <div className='absolute w-3 h-3 left-1/2 bg-white border-b border-r border-gray-200 transform rotate-45 top-full -mt-1.5

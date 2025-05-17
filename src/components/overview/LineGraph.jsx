@@ -12,7 +12,7 @@ const CustomTooltip = ({ active, payload, label }) => {
     return (
       <div className="bg-white bg-opacity-30 p-4 rounded-md shadow">
         <p className="text-sm font-normal text-neutral-900">{formatDate(label)}</p>
-        <p className="text-base font-light text-neutral-600">{`Energy Used: ${payload[0].value} kWh`}</p>
+        <p className="text-base font-light text-neutral-600">{`Energy Used: ${payload[0].value} kWh/m²`}</p>
       </div>
     )
   }
@@ -73,7 +73,7 @@ const LineGraph = ({data}) => {
             />
               <Area 
                 type={'monotone'}
-                dataKey={'kWh'}
+                dataKey={'kWhPerSqm'}
                 stroke="#6366F1"
                 fill={"url(#colourEnergy)"}
                 fillOpacity={1}

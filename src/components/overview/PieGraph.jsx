@@ -5,7 +5,7 @@ const CustomTooltip = ({ active, payload, label }) => {
       return (
         <div className="bg-white bg-opacity-30 p-4 rounded-md shadow">
           <p className="text-sm font-normal text-neutral-900">{payload[0].payload.name}</p>
-          <p className="text-base font-light text-neutral-600">{`Energy Used: ${payload[0].value} kWh`}</p>
+          <p className="text-base font-light text-neutral-600">{`Energy Used: ${payload[0].value} kWh/m²`}</p>
         </div>
       )
     }
@@ -24,13 +24,13 @@ const groupEnergyData = (rawData) => {
 
     rawData.forEach(item => {
         if (item.type === 'Grid Electric') {
-            grouped['Grid Electric'] += item.kWh
+            grouped['Grid Electric'] += item.kWhPerSqm
         } else if (item.type ==='Natural Gas') {
-            grouped['Natural Gas'] += item.kWh
+            grouped['Natural Gas'] += item.kWhPerSqm
         } else if (['Solar PV', 'Solar Thermal', 'GSHP', 'ASHP', 'Biomass'].includes(item.type)) {
-            grouped['Renewables'] += item.kWh
+            grouped['Renewables'] += item.kWhPerSqm
         } else {
-            grouped['Other'] += item.kWh
+            grouped['Other'] += item.kWhPerSqm
         }
     })
 

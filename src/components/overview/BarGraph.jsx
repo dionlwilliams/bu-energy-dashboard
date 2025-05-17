@@ -5,7 +5,7 @@ const CustomTooltip = ({ active, payload, label }) => {
     return (
       <div className="bg-white bg-opacity-30 p-4 rounded-md shadow">
         <p className="text-sm font-normal text-neutral-900">{payload[0].payload.fullName}</p>
-        <p className="text-base font-light text-neutral-600">{`Energy Used: ${payload[0].value} kWh`}</p>
+        <p className="text-base font-light text-neutral-600">{`Energy Used: ${payload[0].value} kWh/m²`}</p>
       </div>
     )
   }
@@ -78,7 +78,7 @@ const BarGraph = ({data}) => {
             offset={20}
           />
           <Bar 
-            dataKey="kWh" 
+            dataKey="kWhPerSqm" 
             fill="url(#barGradient)"
             radius={[6, 6, 0, 0]} 
             barSize={40}
