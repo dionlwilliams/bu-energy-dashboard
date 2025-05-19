@@ -1,0 +1,201 @@
+[
+  {
+    "name": "Christchurch House",
+    "monthlyUsage": [
+      {"month": "2024-01", "kWh": 62854},
+      {"month": "2024-02", "kWh": 57643},
+      {"month": "2024-03", "kWh": 54872},
+      {"month": "2024-04", "kWh": 49765},
+      {"month": "2024-05", "kWh": 45231},
+      {"month": "2024-06", "kWh": 42387},
+      {"month": "2024-07", "kWh": 39876},
+      {"month": "2024-08", "kWh": 36754},
+      {"month": "2024-09", "kWh": 45432},
+      {"month": "2024-10", "kWh": 50987},
+      {"month": "2024-11", "kWh": 56789},
+      {"month": "2024-12", "kWh": 59876}
+    ],
+    "energySources": [
+      {"type": "Grid Electricity", "kWh": 375659},
+      {"type": "Natural Gas", "kWh": 294883},
+      {"type": "Solar Thermal", "kWh": 652}
+    ]
+  },
+  {
+    "name": "Dorset House",
+    "monthlyUsage": [
+      {"month": "2024-01", "kWh": 43876},
+      {"month": "2024-02", "kWh": 40234},
+      {"month": "2024-03", "kWh": 37865},
+      {"month": "2024-04", "kWh": 34567},
+      {"month": "2024-05", "kWh": 31234},
+      {"month": "2024-06", "kWh": 28765},
+      {"month": "2024-07", "kWh": 26543},
+      {"month": "2024-08", "kWh": 24321},
+      {"month": "2024-09", "kWh": 31234},
+      {"month": "2024-10", "kWh": 35678},
+      {"month": "2024-11", "kWh": 39876},
+      {"month": "2024-12", "kWh": 42345}
+    ],
+    "energySources": [
+      {"type": "Grid Electricity", "kWh": 239586},
+      {"type": "PV", "kWh": 48621},
+      {"type": "Natural Gas", "kWh": 205977},
+      {"type": "LPG", "kWh": 4400}
+    ]
+  },
+  {
+    "name": "Fusion Building",
+    "monthlyUsage": [
+      {"month": "2024-01", "kWh": 98765},
+      {"month": "2024-02", "kWh": 91234},
+      {"month": "2024-03", "kWh": 85678},
+      {"month": "2024-04", "kWh": 79876},
+      {"month": "2024-05", "kWh": 73456},
+      {"month": "2024-06", "kWh": 68765},
+      {"month": "2024-07", "kWh": 63456},
+      {"month": "2024-08", "kWh": 59876},
+      {"month": "2024-09", "kWh": 73456},
+      {"month": "2024-10", "kWh": 82345},
+      {"month": "2024-11", "kWh": 88765},
+      {"month": "2024-12", "kWh": 91234}
+    ],
+    "energySources": [
+      {"type": "Grid Electricity", "kWh": 478573},
+      {"type": "PV", "kWh": 69443},
+      {"type": "Natural Gas", "kWh": 475936},
+      {"type": "GSHP", "kWh": 103570}
+    ]
+  },
+  {
+    "name": "Kimmeridge House",
+    "monthlyUsage": [
+      {"month": "2024-01", "kWh": 28765},
+      {"month": "2024-02", "kWh": 26543},
+      {"month": "2024-03", "kWh": 24321},
+      {"month": "2024-04", "kWh": 22345},
+      {"month": "2024-05", "kWh": 20765},
+      {"month": "2024-06", "kWh": 19876},
+      {"month": "2024-07", "kWh": 18765},
+      {"month": "2024-08", "kWh": 17654},
+      {"month": "2024-09", "kWh": 20765},
+      {"month": "2024-10", "kWh": 23456},
+      {"month": "2024-11", "kWh": 25678},
+      {"month": "2024-12", "kWh": 27654}
+    ],
+    "energySources": [
+      {"type": "Grid Electricity", "kWh": 116231},
+      {"type": "Natural Gas", "kWh": 205164}
+    ]
+  },
+  {
+    "name": "Poole Gateway Building",
+    "monthlyUsage": [
+      {"month": "2024-01", "kWh": 119876},
+      {"month": "2024-02", "kWh": 112345},
+      {"month": "2024-03", "kWh": 109876},
+      {"month": "2024-04", "kWh": 98765},
+      {"month": "2024-05", "kWh": 91234},
+      {"month": "2024-06", "kWh": 85678},
+      {"month": "2024-07", "kWh": 79876},
+      {"month": "2024-08", "kWh": 74567},
+      {"month": "2024-09", "kWh": 91234},
+      {"month": "2024-10", "kWh": 105678},
+      {"month": "2024-11", "kWh": 113456},
+      {"month": "2024-12", "kWh": 118765}
+    ],
+    "energySources": [
+      {"type": "Grid Electricity", "kWh": 693054},
+      {"type": "PV", "kWh": 104922},
+      {"type": "Natural Gas", "kWh": 561834}
+    ]
+  },
+  {
+    "name": "Poole House",
+    "monthlyUsage": [
+      {"month": "2024-01", "kWh": 278965},
+      {"month": "2024-02", "kWh": 256789},
+      {"month": "2024-03", "kWh": 243210},
+      {"month": "2024-04", "kWh": 219876},
+      {"month": "2024-05", "kWh": 198765},
+      {"month": "2024-06", "kWh": 187654},
+      {"month": "2024-07", "kWh": 176543},
+      {"month": "2024-08", "kWh": 165432},
+      {"month": "2024-09", "kWh": 198765},
+      {"month": "2024-10", "kWh": 219876},
+      {"month": "2024-11", "kWh": 234567},
+      {"month": "2024-12", "kWh": 256789}
+    ],
+    "energySources": [
+      {"type": "Grid Electricity", "kWh": 1299014},
+      {"type": "PV", "kWh": 244451},
+      {"type": "Natural Gas", "kWh": 935346},
+      {"type": "Biomass", "kWh": 671200}
+    ]
+  },
+  {
+    "name": "Sir Michael Cobham Library",
+    "monthlyUsage": [
+      {"month": "2024-01", "kWh": 85678},
+      {"month": "2024-02", "kWh": 79876},
+      {"month": "2024-03", "kWh": 74567},
+      {"month": "2024-04", "kWh": 68765},
+      {"month": "2024-05", "kWh": 63456},
+      {"month": "2024-06", "kWh": 59876},
+      {"month": "2024-07", "kWh": 55678},
+      {"month": "2024-08", "kWh": 52345},
+      {"month": "2024-09", "kWh": 63456},
+      {"month": "2024-10", "kWh": 72345},
+      {"month": "2024-11", "kWh": 79876},
+      {"month": "2024-12", "kWh": 82345}
+    ],
+    "energySources": [
+      {"type": "Grid Electricity", "kWh": 395087},
+      {"type": "Natural Gas", "kWh": 575624}
+    ]
+  },
+  {
+    "name": "Student Centre",
+    "monthlyUsage": [
+      {"month": "2024-01", "kWh": 39876},
+      {"month": "2024-02", "kWh": 36765},
+      {"month": "2024-03", "kWh": 34567},
+      {"month": "2024-04", "kWh": 31234},
+      {"month": "2024-05", "kWh": 28765},
+      {"month": "2024-06", "kWh": 26543},
+      {"month": "2024-07", "kWh": 24321},
+      {"month": "2024-08", "kWh": 22345},
+      {"month": "2024-09", "kWh": 28765},
+      {"month": "2024-10", "kWh": 32345},
+      {"month": "2024-11", "kWh": 35678},
+      {"month": "2024-12", "kWh": 37654}
+    ],
+    "energySources": [
+      {"type": "Grid Electricity", "kWh": 236437},
+      {"type": "PV", "kWh": 16111},
+      {"type": "Natural Gas", "kWh": 139709},
+      {"type": "ASHP", "kWh": 53583}
+    ]
+  },
+  {
+    "name": "Weymouth House",
+    "monthlyUsage": [
+      {"month": "2024-01", "kWh": 76543},
+      {"month": "2024-02", "kWh": 72345},
+      {"month": "2024-03", "kWh": 68765},
+      {"month": "2024-04", "kWh": 63456},
+      {"month": "2024-05", "kWh": 59876},
+      {"month": "2024-06", "kWh": 55678},
+      {"month": "2024-07", "kWh": 52345},
+      {"month": "2024-08", "kWh": 49876},
+      {"month": "2024-09", "kWh": 59876},
+      {"month": "2024-10", "kWh": 65678},
+      {"month": "2024-11", "kWh": 69876},
+      {"month": "2024-12", "kWh": 72345}
+    ],
+    "energySources": [
+      {"type": "Grid Electricity", "kWh": 491355},
+      {"type": "Natural Gas", "kWh": 371885}
+    ]
+  }
+]

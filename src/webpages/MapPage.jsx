@@ -12,9 +12,11 @@ const processedBuildingEnergy = {
 
 const MapPage = () => {
   return (
+    <div className='flex-1'>
     <CampusMap buildingData={processedBuildingEnergy.yearly}>
       
     </CampusMap>
+    </div>
   )
 }
 

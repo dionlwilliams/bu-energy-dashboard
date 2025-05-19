@@ -5,18 +5,22 @@ import { GeoJsonLayer, WebMercatorViewport} from 'deck.gl'
 import { centroid } from '@turf/turf'
 import 'mapbox-gl/dist/mapbox-gl.css'
 import campusData from '../tempData/campusMapGeo.json'
+import buildingDetailsData from '../tempData/yearlyBuildingDetails.json'
+import { SlidePanel } from './SlidePanel'
+import LineGraph from '../components/overview/LineGraph'
+import PieGraph from '../components/overview/PieGraph'
+import { normaliseDataset } from '../utils/energyConversion'
 
 const CampusMap = ({buildingData}) => {
   const [selectedBuilding, setSelectedBuilding] = useState(null)
   const [hoveredInfo, setHoveredInfo] = useState(null)
 
   const COLOUR_SCALE = [
-    [224, 225, 251, 255],
-    [176, 178, 247, 255],
-    [134, 137, 244, 255], 
-    [99, 102, 241, 255]   
+    [184, 185, 211, 255],
+    [146, 148, 197, 255],
+    [110, 113, 190, 255],
+    [75, 78, 175, 255]
   ]
-
   
   const [viewport, setViewport] = useState({
         latitude: 50.742719,
@@ -24,6 +28,22 @@ const CampusMap = ({buildingData}) => {
         zoom: 17.5,
         bearing: 17
     })
+
+  const buildingDetails = selectedBuilding
+    ? buildingDetailsData.find(b => b.name === selectedBuilding.properties.name)
+    : null
+
+  const normalisedDetails = buildingDetails ? {
+    ...buildingDetails,
+    monthlyUsage: normaliseDataset(
+      buildingDetails.monthlyUsage.map(item => ({...item, building: buildingDetails.name})),
+      'building'
+    ),
+    energySources: normaliseDataset(
+      buildingDetails.energySources.map(item => ({ ...item, building: buildingDetails.name})),
+      'building'
+    )
+  } : null
 
     const energyLookup = useMemo(() => {
       if (!buildingData?.totals) {
@@ -39,14 +59,6 @@ const CampusMap = ({buildingData}) => {
 
     const processedCampusData = useMemo(() => {
       if (!campusData?.features) return null
-
-      const energyValues = Object.values(energyLookup)
-      const rawMin = Math.min(...energyValues)
-      const rawMax = Math.max(...energyValues)
-
-      const minEnergy = Math.floor(rawMin / 10) * 10
-      const maxEnergy = Math.ceil(rawMax / 10) * 10
-      const energyRange = maxEnergy - minEnergy
 
       return {
         ...campusData,
@@ -205,6 +217,18 @@ const CampusMap = ({buildingData}) => {
         </DeckGL>
         {renderTooltip()}
         {renderLegend()}
+        <SlidePanel
+        isOpen={!!selectedBuilding}
+        onClose={() => setSelectedBuilding(null)}
+        title={selectedBuilding?.properties?.name || 'Building Details'}
+        >
+          {normalisedDetails && (
+            <>
+              <LineGraph data={normalisedDetails.monthlyUsage} />
+              <PieGraph data={normalisedDetails.energySources} />
+            </>
+          )}
+        </SlidePanel>
         </div>
   )
 }

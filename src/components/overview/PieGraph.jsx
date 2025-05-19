@@ -12,7 +12,12 @@ const CustomTooltip = ({ active, payload, label }) => {
     return null
   }
 
-const COLOURS = ["#6366F1", "#F59E0B", "#10B981", "#9CA3AF"]
+const COLOUR_MAP = {
+    'Grid Electric': '#6366F1', 
+    'Natural Gas': '#F59E0B', 
+    'Renewables': '#10B981',
+    'Other': '#9CA3AF'
+}
 
 const groupEnergyData = (rawData) => {
     const grouped = {
@@ -34,14 +39,16 @@ const groupEnergyData = (rawData) => {
         }
     })
 
-    return Object.keys(grouped).map(key => ({
-        name: key,
-        value: grouped[key]
+    return Object.entries(grouped).map(([name, value]) => ({
+        name,
+        value,
+        color: COLOUR_MAP[name] || '9CA3AF'
     }))
 }
 
 const PieGraph = ({data}) => {
     const groupedData = groupEnergyData(data)
+    const total = groupedData.reduce((sum, item) => sum + item.value, 0)
 
     return ( 
         <div className="w-full h-[30vh] min-h-[300px] relative">
@@ -50,20 +57,21 @@ const PieGraph = ({data}) => {
                     <Pie
                         data={groupedData} 
                         dataKey={"value"} 
-                        nameKey={"type"} 
+                        nameKey={"name"} 
                         cx={"50%"} 
                         cy={"50%"}
                         outerRadius={"80%"}
                         labelLine={false}
                         strokeWidth={3}
-                        label={({ name, percent }) => 
-                            `${(percent * 100).toFixed(0)}%`
-                        }
+                        label={({ percent }) => {
+                            const percentage = percent * 100
+                            return percentage >= 1 ? `${(percent * 100).toFixed(0)}%` : ''
+                        }}
                     >
                         {groupedData.map((entry, index) => (
                             <Cell
                             key={`cell-${index}`}
-                            fill={COLOURS[index % COLOURS.length]}
+                            fill={entry.color}
                             />
                         ))}
                     </Pie>
@@ -80,6 +88,14 @@ const PieGraph = ({data}) => {
                         bottom: '-10px',
                         fontSize: '0.9rem'
                     }}
+                    payload={groupedData.filter(item => {
+                        const percentage = (item.value / total) * 100
+                        return percentage >= 1
+                    }).map(item => ({
+                        id: item.name,
+                        value: item.name,
+                        color: item.color
+                    }))}
                     formatter={(value) => (
                         <span className="text-lg font-normal">{value}</span>
                     )}

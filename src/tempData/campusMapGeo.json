@@ -658,9 +658,6 @@
         }
       },
       {
-  "type": "FeatureCollection",
-  "features": [
-    {
       "type": "Feature",
       "properties": {
         "name": "Dorset House"
@@ -976,6 +973,5 @@
     }
   ]
 }
-  ]
-}
+
    
