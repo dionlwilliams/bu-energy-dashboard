@@ -16,7 +16,7 @@
       {"month": "2024-12", "kWh": 59876}
     ],
     "energySources": [
-      {"type": "Grid Electricity", "kWh": 375659},
+      {"type": "Grid Electric", "kWh": 375659},
       {"type": "Natural Gas", "kWh": 294883},
       {"type": "Solar Thermal", "kWh": 652}
     ]
@@ -38,7 +38,7 @@
       {"month": "2024-12", "kWh": 42345}
     ],
     "energySources": [
-      {"type": "Grid Electricity", "kWh": 239586},
+      {"type": "Grid Electric", "kWh": 239586},
       {"type": "PV", "kWh": 48621},
       {"type": "Natural Gas", "kWh": 205977},
       {"type": "LPG", "kWh": 4400}
@@ -61,7 +61,7 @@
       {"month": "2024-12", "kWh": 91234}
     ],
     "energySources": [
-      {"type": "Grid Electricity", "kWh": 478573},
+      {"type": "Grid Electric", "kWh": 478573},
       {"type": "PV", "kWh": 69443},
       {"type": "Natural Gas", "kWh": 475936},
       {"type": "GSHP", "kWh": 103570}
@@ -84,12 +84,12 @@
       {"month": "2024-12", "kWh": 27654}
     ],
     "energySources": [
-      {"type": "Grid Electricity", "kWh": 116231},
+      {"type": "Grid Electric", "kWh": 116231},
       {"type": "Natural Gas", "kWh": 205164}
     ]
   },
   {
-    "name": "Poole Gateway Building",
+    "name": "Poole Gateway",
     "monthlyUsage": [
       {"month": "2024-01", "kWh": 119876},
       {"month": "2024-02", "kWh": 112345},
@@ -105,7 +105,7 @@
       {"month": "2024-12", "kWh": 118765}
     ],
     "energySources": [
-      {"type": "Grid Electricity", "kWh": 693054},
+      {"type": "Grid Electric", "kWh": 693054},
       {"type": "PV", "kWh": 104922},
       {"type": "Natural Gas", "kWh": 561834}
     ]
@@ -127,7 +127,7 @@
       {"month": "2024-12", "kWh": 256789}
     ],
     "energySources": [
-      {"type": "Grid Electricity", "kWh": 1299014},
+      {"type": "Grid Electric", "kWh": 1299014},
       {"type": "PV", "kWh": 244451},
       {"type": "Natural Gas", "kWh": 935346},
       {"type": "Biomass", "kWh": 671200}
@@ -150,7 +150,7 @@
       {"month": "2024-12", "kWh": 82345}
     ],
     "energySources": [
-      {"type": "Grid Electricity", "kWh": 395087},
+      {"type": "Grid Electric", "kWh": 395087},
       {"type": "Natural Gas", "kWh": 575624}
     ]
   },
@@ -171,7 +171,7 @@
       {"month": "2024-12", "kWh": 37654}
     ],
     "energySources": [
-      {"type": "Grid Electricity", "kWh": 236437},
+      {"type": "Grid Electric", "kWh": 236437},
       {"type": "PV", "kWh": 16111},
       {"type": "Natural Gas", "kWh": 139709},
       {"type": "ASHP", "kWh": 53583}
@@ -194,7 +194,7 @@
       {"month": "2024-12", "kWh": 72345}
     ],
     "energySources": [
-      {"type": "Grid Electricity", "kWh": 491355},
+      {"type": "Grid Electric", "kWh": 491355},
       {"type": "Natural Gas", "kWh": 371885}
     ]
   }

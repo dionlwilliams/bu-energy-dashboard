@@ -72,6 +72,7 @@ const PieGraph = ({data}) => {
                             <Cell
                             key={`cell-${index}`}
                             fill={entry.color}
+                            style={{outline: 'none'}}
                             />
                         ))}
                     </Pie>
