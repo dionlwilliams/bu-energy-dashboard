@@ -10,7 +10,8 @@ import LineGraph from '../components/overview/LineGraph'
 import PieGraph from '../components/overview/PieGraph'
 import { normaliseDataset } from '../utils/energyConversion'
 import BuildingTooltip from './BuildingTooltip'
-import { Zap, PieChart, Cloud, Home } from 'lucide-react'
+import { Zap, PieChart, Cloud, CarFront , ArrowDown} from 'lucide-react'
+import EfficiencyBadge from './buildingDetails/EfficiencyBadge'
 
 const CampusMap = ({buildingData}) => {
   const [selectedBuilding, setSelectedBuilding] = useState(null)
@@ -249,14 +250,9 @@ useEffect(() => {
             <div className='flex items-start justify-between gap-4 flex-1'>
               <div className='flex flex-col gap-1'>
                 <div className='flex items-center gap-3'>
-                  <span className='
-                    flex items-center justify-center 
-                    w-10 h-10 rounded-full 
-                  bg-indigo-300 text-indigo-800
-                    text-base font-semibold
-                    '>
-                      A+
-                  </span>  
+                  <EfficiencyBadge 
+                    kWh={selectedBuilding?.properties?.kWh}
+                    COLOUR_SCALE={COLOUR_SCALE} />
                   <h2 className='text-xl font-light tracking-wide text-stone-700'>
                     {selectedBuilding?.properties?.name}
                   </h2>
@@ -281,17 +277,11 @@ useEffect(() => {
               
               <LineGraph data={normalisedDetails.monthlyUsage} />
 
-              <div className='w-full mt-2 flex justify-center'>
-                <div className='relative h-5 w-6/8 bg-gray-200 rounded-full overflow-hidden mx-auto'>
-                  <div 
-                  className='absolute h-full bg-yellow-400 rounded-full transition-all duration-300' 
-                  style={{ width: '7%'}}
-                  />
-                </div>
-              </div>
-    
-              <p className='mt-2 text-gray-600 text-lg'>
-                <span className='font-medium text-gray-800 '>X%</span> less than campus average
+              <p className='mt-2 mb-3 text-gray-700 text-sm flex items-center gap-1 justify-center'>
+                <ArrowDown className='text-green-500 w-5 h-5' />
+                <span className='font-light text-base tracking-wide'>
+                  <span className='font-semibold text-gray-800'>X%</span> better than campus average
+                </span>
               </p>
             </div>
 
@@ -312,10 +302,11 @@ useEffect(() => {
                   <p className='font-bold text-base text-gray-700'>X kg</p>
                   <p className='text-gray-500 text-[11px]'>CO₂ / year</p>
                 </div>
-                <div className='bg-gray-50 rounded-lg p-3 flex flex-col items-center shadow-sm'>
-                  <Home className='text-gray-400 mb-1' size={22} />
-                  <p className='font-bold text-base text-gray-700'>27</p>
-                  <p className='text-gray-500 text-[11px]'>UK homes / year</p>
+                <div className='bg-gray-50 rounded-lg p-3 flex flex-col items-center text-center shadow-sm'>
+                  <CarFront className='text-gray-400 mb-1' size={22} /> 
+                  <p className='text-gray-500 text-xs'>
+                    Equivalent to driving <br/><span className='font-bold text-base text-gray-700'>27 </span>cars for 1 year
+                  </p>
                 </div>
               </div>
             </div>
