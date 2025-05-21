@@ -9,7 +9,7 @@ export const SlidePanel = ({ isOpen, onClose, headerContent, children }) => {
                 initial={{ x: '-100%' }}
                 animate={{ x: 0 }}
                 exit={{ x: '-100%' }}
-                transition={{ type: 'tween', duration: 0.4  }}
+                transition={{ type: 'tween', duration: 0.3  }}
                 className='fixed top-0 left-0 h-full w-100 bg-neutral-50 shadow-xl z-[1001] pointer-events-auto'
                 >
                     <div className='h-full flex flex-col'>
@@ -17,7 +17,7 @@ export const SlidePanel = ({ isOpen, onClose, headerContent, children }) => {
                             {headerContent}
                             <button
                                 onClick={onClose}
-                                className='p-1 hover:bg-gray-100 rounded-full'
+                                className='p-1 hover:bg-gray-200 rounded-full'
                             >
                                 <X className='w-6 h-6 text-gray-600' />
                             </button>

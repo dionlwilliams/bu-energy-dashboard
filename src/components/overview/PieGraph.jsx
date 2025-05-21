@@ -51,9 +51,9 @@ const PieGraph = ({data}) => {
     const total = groupedData.reduce((sum, item) => sum + item.value, 0)
 
     return ( 
-        <div className="w-full h-[30vh] min-h-[300px] relative">
+        <div className="w-full h-[28vh] min-h-[250px] relative">
             <ResponsiveContainer width={"100%"} height={"100%"}>
-                <PieChart margin={{ top: 20, right: 30, left: 10, bottom: 10 }}>
+                <PieChart margin={{ top: 5, right: 15, left: 10, bottom: 20 }}>
                     <Pie
                         data={groupedData} 
                         dataKey={"value"} 
@@ -86,9 +86,10 @@ const PieGraph = ({data}) => {
                     align="center"
                     wrapperStyle={{ 
                         paddingTop: '10px',
-                        bottom: '-10px',
+                        bottom: '10px',
                         fontSize: '0.9rem'
                     }}
+                    iconSize={12}
                     payload={groupedData.filter(item => {
                         const percentage = (item.value / total) * 100
                         return percentage >= 1

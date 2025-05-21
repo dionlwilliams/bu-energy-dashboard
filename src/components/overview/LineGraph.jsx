@@ -1,5 +1,5 @@
 import { ResponsiveContainer, AreaChart, Area, XAxis, YAxis, Tooltip} from "recharts";
-import React from 'react'
+
 const formatDate = (monthYear) => {
   const [year, month] = monthYear.split('-');
   const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", 
@@ -22,11 +22,11 @@ const CustomTooltip = ({ active, payload, label }) => {
 const LineGraph = ({data}) => {
 
   return (
-    <div className="w-full h-[35vh] min-h-[320px] relative">
+    <div className="w-full h-[33vh] min-h-[250px] relative">
       <ResponsiveContainer width={"100%"} height={"100%"}>
         <AreaChart 
           data={data} 
-          margin={{ top: 20, right: 30, left: 30, bottom: 20 }}
+          margin={{ top: 20, right: 15, left: 15, bottom: 15 }}
         >
           <defs>
             <linearGradient id="colourEnergy" x1="0" y1="0" x2="0" y2="1">
@@ -38,11 +38,13 @@ const LineGraph = ({data}) => {
             dataKey={"month"} 
             tick={{ 
               fill: "#6B7280", 
-              fontSize: 12,
-              dy: 10
+              fontSize: 11,
+              dy: 3,
+              dx: -2
             }} 
             stroke="#CECECE" 
             tickFormatter={formatDate}
+            
           />
           <YAxis 
             tick={{ 
@@ -50,12 +52,13 @@ const LineGraph = ({data}) => {
               fontSize: 12 
             }} 
             stroke="#CECECE"
-            width={50}
+            width={35}
+            tickCount={5}
             label = {{
               value: "kWh/m²",
               angle: -90,
               position: "left",
-              offset: 20,
+              offset: 5,
               style: {
                 textAnchor: "middle",
                 fontSize: 14,
