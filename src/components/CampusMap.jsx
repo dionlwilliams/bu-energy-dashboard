@@ -219,7 +219,7 @@ useEffect(() => {
           style={{
             left: `${tooltipPosition.x}px`,
             top: `${tooltipPosition.y}px`,
-            zIndex: 999
+            zIndex: 900
           }}
         >
           <BuildingTooltip building={hoveredInfo?.object} />
@@ -228,11 +228,11 @@ useEffect(() => {
 
       {selectedTooltipPos && selectedBuilding && (
         <div 
-          className='absolute z-[600] pointer-events-none'
+          className='absolute pointer-events-none'
           style={{
             left: `${selectedTooltipPos.x}px`,
             top: `${selectedTooltipPos.y}px`,
-            zIndex: 999
+            zIndex: 900
           }}
         >
           <BuildingTooltip building={selectedBuilding} />
@@ -243,16 +243,25 @@ useEffect(() => {
         <SlidePanel
         isOpen={!!selectedBuilding}
         onClose={() => setSelectedBuilding(null)}
-        title={selectedBuilding?.properties?.name || 'Building Details'}
         >
           {normalisedDetails && (
-            <>
+            <div className='space-y-6'>
+              <div className='flex items-center gap-2'>
+                <span className='inline-block px-3 py-1 text-xs font-normal bg-green-100 text-green-700 rounded-full'>
+                  Efficient
+                </span>
+                <span className='text-sm text-gray-500'>
+                  Based on kWh/m²
+                </span>
+              </div>
+
               <LineGraph data={normalisedDetails.monthlyUsage} />
               <PieGraph data={normalisedDetails.energySources} />
-            </>
+            <div/>
+            </div>
           )}
         </SlidePanel>
-      </div>
+        </div>
   )
 }
 

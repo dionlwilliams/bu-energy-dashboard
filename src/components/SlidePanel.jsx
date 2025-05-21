@@ -1,7 +1,7 @@
 import { X } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 
-export const SlidePanel = ({isOpen, onClose, title, children }) => {
+export const SlidePanel = ({isOpen, onClose, children }) => {
     return (
         <AnimatePresence>
             {isOpen && (
@@ -14,7 +14,6 @@ export const SlidePanel = ({isOpen, onClose, title, children }) => {
             >
                 <div className='h-full flex flex-col'>
                     <div className='flex justify-between items-center p-6 border-b'>
-                        <h2 className='text-xl font-light tracking-wide'>{title}</h2>
                         <button
                             onClick={onClose}
                             className='p-1 hover:bg-gray-100 rounded-full'

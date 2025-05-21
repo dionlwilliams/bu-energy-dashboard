@@ -5,8 +5,8 @@
         "type": "Feature",
         "properties": {
           "name": "Kimmeridge House",
-          "tooltipAnchor": [-1.8960968662247808,
-          50.74347089243048]
+          "tooltipAnchor": [-1.896121900336425,
+          50.743528762205074]
         },
         "geometry": {
           "coordinates": [
@@ -355,8 +355,8 @@
         "type": "Feature",
         "properties": {
           "name": "Student Centre",
-          "tooltipAnchor": [-1.8968983856786394,
-          50.743057002750106]
+          "tooltipAnchor": [-1.8962936731197146,
+          50.74272930559388]
         },
         "geometry": {
           "coordinates": [
@@ -434,8 +434,8 @@
         "type": "Feature",
         "properties": {
           "name": "Sir Michael Cobham Library",
-          "tooltipAnchor": [-1.8968983856786394,
-          50.743057002750106]
+          "tooltipAnchor": [-1.8959299856811356,
+          50.74245761919758]
         },
         "geometry": {
           "coordinates": [
@@ -665,8 +665,8 @@
       "type": "Feature",
       "properties": {
         "name": "Dorset House",
-        "tooltipAnchor": [-1.8968983856786394,
-          50.743057002750106]
+        "tooltipAnchor": [-1.8953944790426647,
+          50.743296942710316]
       },
       "geometry": {
         "coordinates": [
@@ -812,8 +812,8 @@
       "type": "Feature",
       "properties": {
         "name": "Weymouth House",
-        "tooltipAnchor": [-1.8968983856786394,
-          50.743057002750106]
+        "tooltipAnchor": [-1.8946911652039375,
+          50.74299942620971]
       },
       "geometry": {
         "coordinates": [
@@ -983,8 +983,8 @@
       "type": "Feature",
       "properties": {
         "name": "Fusion Building",
-        "tooltipAnchor": [-1.8968983856786394,
-          50.743057002750106]
+        "tooltipAnchor": [-1.894754493196757,
+          50.74239061489999]
       },
       "geometry": {
         "coordinates": [
@@ -1362,8 +1362,8 @@
       "type": "Feature",
       "properties": {
         "name": "Christchurch House",
-        "tooltipAnchor": [-1.8968983856786394,
-          50.743057002750106]
+        "tooltipAnchor": [-1.8936805761209428,
+          50.742936752064054]
       },
       "geometry": {
         "coordinates": [
@@ -1449,8 +1449,8 @@
       "type": "Feature",
       "properties": {
         "name": "Poole Gateway",
-        "tooltipAnchor": [-1.8968983856786394,
-          50.743057002750106]
+        "tooltipAnchor": [-1.892573089744701,
+          50.74218472723004]
       },
       "geometry": {
         "coordinates": [
