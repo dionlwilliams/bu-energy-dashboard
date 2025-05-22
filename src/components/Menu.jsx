@@ -1,11 +1,11 @@
-import React from 'react'
-import { ChartNoAxesCombined, MapPinned, Info } from 'lucide-react';
-import { MdOutlineLeaderboard } from "react-icons/md";
+import { ChartNoAxesCombined, MapPinned, Info } from 'lucide-react'
+import { MdOutlineLeaderboard } from "react-icons/md"
 import { motion } from 'framer-motion'
 import { Link, useLocation } from 'react-router-dom'
+import greenview_logo from '../assets/greenview_logo.png'
 
 const MENU_LIST = [
-    {name:"Overview", icon:ChartNoAxesCombined, color:"#201d1d", path:"/"},
+    {name:"Overview", icon:ChartNoAxesCombined, color:"#9CA3AF", path:"/"},
     {name:"Campus Map", icon:MapPinned, color:"#201d1d", path:"/map"},
     {name:"Leaderboard", icon:MdOutlineLeaderboard, color:"#201d1d", path:"/leaderboard"}
 ];
@@ -14,11 +14,19 @@ const Menu = () => {
   const { pathname } = useLocation()
 
   return (
-      <div className='h-full bg-neutral-200 bg-opacity-50 p-4 flex flex-col w-20 md:w-100 z-950'>
-        <div className='h-16 md:h-24 flex items-center md:pl-4'>
-          <p className='hidden md:block text-2xl font-semibold'>
-            BU Energy Dashboard
-            </p>
+      <div className='h-full bg-[#E5E7EB] bg-opacity-50 p-4 flex flex-col w-20 md:w-100 z-950'>
+        <div className='h-16 md:h-24 flex items-center md:pl-4 gap-3'>
+          <img
+            src={greenview_logo}
+            alt='GreenView Logo'
+            style={{ width: '100px', height: '60px'}}
+          />
+          <div className='hidden md:flex flex-col'>
+            <h1 className='text-3xl font-heading tracking-widest text-[#49685C] leading-none'>
+              GreenView
+            </h1>
+            <span className='text-sm font-heading tracking-wider text-[#6C8B80] text-center'>BU Energy Dashboard</span>
+          </div>
         </div>
 
         <nav className='mt-6 flex-grow'>
@@ -35,23 +43,28 @@ const Menu = () => {
                 mb-5 
                 h-16 md:h-20
                 w-full
-                text-lg font-medium 
+                text-xl font-menu tracking-wide 
                 rounded-lg 
                 transition-colors duration-100
-                ${isActive ? 'bg-neutral-400' : 'hover:bg-neutral-300'}
+                ${isActive ? 'bg-[#D1D5DB]' : 'hover:bg-[#CBD5E1]'}
+                group
               `}>
 
                 <Icon
                   size={ isActive ? 40 : 36 }
-                  className='align-middle ml-0 md:ml-4'
-                  style={{ color: item.color}}
+                  className='align-middle ml-0 md:ml-4 group-hover:text-gray-700'
+                  style={{ 
+                    color: isActive ? '#527A6C' : '#6B7280',          
+                    transition: 'color 120ms ease-in-out'
+                  }}
                 />
 
                 <span
                   className={`
                     hidden md:inline-block
+                    font-menu
                     ml-4
-                    ${isActive ? 'text-neutral-950' : 'text-neutral-500'}
+                    ${isActive ? 'text-[#1F2937]' : 'text-[#9CA3AF]'}
                     `}
                   >
                     {item.name}
@@ -63,7 +76,7 @@ const Menu = () => {
         </nav>  
 
         <div className=' mt-6'>
-          <hr />
+          <hr className='text-[#6B7280]'/>
           <motion.div 
             className='
             flex 
@@ -72,10 +85,10 @@ const Menu = () => {
             mt-6
             h-16 md:h-20
             px-0 md:pl-10
-            text-lg font-medium rounded-lg hover:bg-neutral-400'
+            text-xl text-[#9CA3AF] font-menu rounded-lg hover:bg-[#CBD5E1]'
             >
             <Info 
-            size={36} color='#201d1d'
+            size={36} color='#6B7280'
             />
             <p className='hidden md:inline ml-6'>About Metrics</p>
           </motion.div>

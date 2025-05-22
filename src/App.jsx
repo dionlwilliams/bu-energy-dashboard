@@ -7,7 +7,7 @@ import Menu from './components/Menu'
 
 function App({}) {
   return (
-    <div className='flex h-screen z--1000 text-stone-900 overflow-hidden relative before:content-[""] before:absolute before:inset-0 before:bg-neutral-50 before:opacity-60 before:pointer-events-none'>
+    <div className='flex h-screen z-0 text-stone-900 overflow-hidden bg-[#F9FAFB]'>
     {/*bg styling - come back to later*/}
     
     <Menu />

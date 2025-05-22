@@ -20,7 +20,7 @@ const BuildingDetailsPanel = ({
       onClose={onClose}
       headerContent={
         <div className='flex items-start justify-between gap-4 flex-1'>
-          <div className='flex flex-col gap-1'>
+          <div className='flex flex-col gap-1 flex-1 min-w-0'>
             <div className='flex items-center gap-3'>
               <EfficiencyBadge 
                 kWh={selectedBuilding?.properties?.kWh}
@@ -37,17 +37,17 @@ const BuildingDetailsPanel = ({
         </div>
       }
     >
-      <div className='flex flex-col gap-6 text-gray-800 text-sm'>
+      <div className='flex flex-col gap-4 h-full overflow-y-auto text-gray-800 text-sm'>
         
-        <div className='bg-gray-50 rounded-lg p-2 shadow-sm flex flex-col items-center'>
-          <div className='flex items-center gap-2 mb-2 align-middle'>
+        <div className='bg-gray-50 rounded-lg p-2 shadow-sm flex flex-col items-center flex-shrink-0'>
+          <div className='flex items-center gap-2 mb-2 w-full justify-center'>
             <Zap size={25} className='text-yellow-400' />
             <h3 className="text-md font-light text-xl tracking-wide mb-2">
               Yearly Energy Usage
             </h3>
           </div>
           
-          <LineGraph data={normalisedDetails.monthlyUsage} />
+            <LineGraph data={normalisedDetails.monthlyUsage} />
 
           {selectedBuilding?.properties?.kWh && (
             <EnergyComparisonDisplay 

@@ -31,17 +31,15 @@ const environmentalImpact = calculateEnvironmentalImpact(overallEnergyTypes.year
 const energyStats = calculateEnergyConsumption(processedBuildingEnergy.yearly, processedEnergyTypes.yearly)
 
 const OverviewPage = () => {
-  console.log(processedEnergyData)
-  console.log(processedBuildingEnergy)
-  console.log(processedEnergyTypes)
+
   return (
     <div className='flex-1 flex flex-col overflow-auto relative z-10'>
       {/* Heading Bar */}
       <div className='w-full mx-auto h-32 py-4 px-4 grid grid-cols-[2fr_1fr] gap-4'>
         {/* Title */}
         <div className='flex flex-col justify-center m-4'> 
-          <h1 className='text-4xl font-light text-neutral-800 tracking-wider'>Talbot Campus Energy Overview</h1>
-          <p className='m-2 font-light text-xl text-neutral-700 tracking-wide'>
+          <h1 className='text-4xl font-heading text-gray-800 tracking-wider'>Talbot Campus Energy Overview</h1>
+          <p className='m-2 font-sans text-xl text-gray-600 tracking-wide'>
             Measured in kWh per square meter (kWh/m²)
           </p>
         </div>
