@@ -22,10 +22,10 @@ const Menu = () => {
             style={{ width: '100px', height: '60px'}}
           />
           <div className='hidden md:flex flex-col'>
-            <h1 className='text-3xl font-heading tracking-widest text-[#49685C] leading-none'>
+            <h1 className='text-3xl tracking-widest text-[#49685C] leading-none'>
               GreenView
             </h1>
-            <span className='text-sm font-heading tracking-wider text-[#6C8B80] text-center'>BU Energy Dashboard</span>
+            <span className='text-sm tracking-wider text-[#6C8B80] text-center'>BU Energy Dashboard</span>
           </div>
         </div>
 
@@ -43,7 +43,7 @@ const Menu = () => {
                 mb-5 
                 h-16 md:h-20
                 w-full
-                text-xl font-menu tracking-wide 
+                text-xl tracking-wide 
                 rounded-lg 
                 transition-colors duration-100
                 ${isActive ? 'bg-[#D1D5DB]' : 'hover:bg-[#CBD5E1]'}
@@ -62,7 +62,6 @@ const Menu = () => {
                 <span
                   className={`
                     hidden md:inline-block
-                    font-menu
                     ml-4
                     ${isActive ? 'text-[#1F2937]' : 'text-[#9CA3AF]'}
                     `}

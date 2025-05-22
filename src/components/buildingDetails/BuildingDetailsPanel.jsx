@@ -39,8 +39,8 @@ const BuildingDetailsPanel = ({
     >
       <div className='flex flex-col gap-4 h-full overflow-y-auto text-gray-800 text-sm'>
         
-        <div className='bg-gray-50 rounded-lg p-2 shadow-sm flex flex-col items-center flex-shrink-0'>
-          <div className='flex items-center gap-2 mb-2 w-full justify-center'>
+        <div className='bg-gray-50 rounded-lg p-2 shadow-sm flex flex-1 flex-col items-center flex-shrink'>
+          <div className='flex items-center gap-2 mb-2 w-full flex-1 justify-center'>
             <Zap size={25} className='text-yellow-400' />
             <h3 className="text-md font-light text-xl tracking-wide mb-2">
               Yearly Energy Usage
@@ -57,8 +57,8 @@ const BuildingDetailsPanel = ({
           )}
         </div>
 
-        <div className='bg-gray-50 rounded-lg p-2 shadow-sm flex flex-col items-center'>
-          <div className='flex items-center gap-2 mb-2'>
+        <div className='bg-gray-50 rounded-lg p-2 shadow-sm flex flex-1 flex-col items-center'>
+          <div className='flex items-center gap-2 mb-2 flex-1'>
             <PieChart size={25} className='text-indigo-500' />
             <h3 className='text-md font-light text-xl tracking-wide mb-2'>
               Energy Breakdown
@@ -75,7 +75,7 @@ const BuildingDetailsPanel = ({
             </p>
             <p className='text-gray-500 text-[11px]'>CO₂ / year</p>
           </div>
-          <div className='bg-gray-50 rounded-lg p-3 flex flex-col items-center text-center shadow-sm'>
+          <div className='bg-gray-50 rounded-lg p-3 flex flex-col flex-1 items-center text-center shadow-sm'>
             <CarFront className='text-gray-400 mb-1' size={22} /> 
             <p className='text-gray-500 text-xs'>
               Equivalent to driving <br/>

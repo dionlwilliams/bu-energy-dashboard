@@ -51,9 +51,9 @@ const PieGraph = ({data}) => {
     const total = groupedData.reduce((sum, item) => sum + item.value, 0)
 
     return ( 
-        <div className="w-full h-[28vh] min-h-[250px] relative">
+        <div className="w-full h-[28vh] min-h-[200px] relative">
             <ResponsiveContainer width={"100%"} height={"100%"}>
-                <PieChart margin={{ top: 5, right: 15, left: 10, bottom: 20 }}>
+                <PieChart margin={{ top: 10, right: 15, left: 10, bottom: 20 }}>
                     <Pie
                         data={groupedData} 
                         dataKey={"value"} 

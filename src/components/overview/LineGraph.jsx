@@ -22,7 +22,7 @@ const CustomTooltip = ({ active, payload, label }) => {
 const LineGraph = ({data}) => {
 
   return (
-    <div className="w-full h-[33vh] min-h-[250px] relative">
+    <div className="w-full h-[33vh] min-h-[200px] relative">
       <ResponsiveContainer width={"100%"} height={"100%"}>
         <AreaChart 
           data={data} 

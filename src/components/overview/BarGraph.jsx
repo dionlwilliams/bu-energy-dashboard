@@ -33,7 +33,7 @@ const BarGraph = ({data}) => {
   }))
 
     return(
-        <div className="w-full h-[35vh] min-h-[320px] relative">
+        <div className="w-full h-[35vh] min-h-[200px] relative">
         <ResponsiveContainer width="100%" height="100%">
         <BarChart
           data={chartData} 

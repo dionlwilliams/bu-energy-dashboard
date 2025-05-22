@@ -7,7 +7,7 @@ const EnergyComparisonDisplay = ({ buildingKWh, campusAverage }) => {
   if (!comparison) return null;
 
   return (
-    <p className='mt-2 mb-3 text-gray-700 text-sm flex items-center gap-1 justify-center'>
+    <p className='mt-2 mb-2 text-gray-700 text-sm flex items-center gap-1 justify-center'>
       {comparison.arrowDirection === 'down' ? (
         <ArrowDown className={`${comparison.arrowColor} w-5 h-5`} />
       ) : (

@@ -10,7 +10,7 @@ export const SlidePanel = ({ isOpen, onClose, headerContent, children }) => {
                 animate={{ x: 0 }}
                 exit={{ x: '-100%' }}
                 transition={{ type: 'tween', duration: 0.3  }}
-                className='fixed top-0 left-0 h-full w-100 bg-neutral-50 shadow-xl z-[1001] pointer-events-auto'
+                className='fixed top-0 left-0 h-full w-100 bg-[#E5E7EB] shadow-xl z-[1001] pointer-events-auto'
                 >
                     <div className='h-full flex flex-col'>
                         <div className='flex justify-between items-center p-6'>
