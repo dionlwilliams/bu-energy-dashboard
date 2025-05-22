@@ -9,6 +9,8 @@ export const calculateEnvironmentalImpact = (energyData) => {
 
     const TREE_CO2_SEQUESTRATION = 22
 
+    const CAR_CO2_PER_YEAR = 1400
+
     let renewableEnergy = 0
     let nonRenewableEmissions = 0
     let totalEnergy = 0
@@ -27,6 +29,8 @@ export const calculateEnvironmentalImpact = (energyData) => {
     return {
         renewablePercentage: (renewableEnergy / totalEnergy * 100).toFixed(0),
         co2Saved: Math.round(co2Saved).toLocaleString(),
-        treeEquivalents: Math.round(co2Saved / TREE_CO2_SEQUESTRATION).toLocaleString()
+        treeEquivalents: Math.round(co2Saved / TREE_CO2_SEQUESTRATION).toLocaleString(),
+        co2Emissions : Math.round(nonRenewableEmissions).toLocaleString(),
+        carEquivalents: Math.round(nonRenewableEmissions / CAR_CO2_PER_YEAR)
     }
 }

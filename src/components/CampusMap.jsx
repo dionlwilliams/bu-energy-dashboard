@@ -5,20 +5,18 @@ import { GeoJsonLayer, WebMercatorViewport} from 'deck.gl'
 import 'mapbox-gl/dist/mapbox-gl.css'
 import campusData from '../tempData/campusMapGeo.json'
 import buildingDetailsData from '../tempData/yearlyBuildingDetails.json'
-import { SlidePanel } from './SlidePanel'
-import LineGraph from '../components/overview/LineGraph'
-import PieGraph from '../components/overview/PieGraph'
 import { normaliseDataset } from '../utils/energyConversion'
 import BuildingTooltip from './BuildingTooltip'
-import { Zap, PieChart, Cloud, CarFront , ArrowDown} from 'lucide-react'
-import EfficiencyBadge from './buildingDetails/EfficiencyBadge'
+import { calculateEnvironmentalImpact } from '../utils/environmentalImpact'
+import BuildingDetailsPanel from './buildingDetails/BuildingDetailsPanel'
+import MapLegend from './map/MapLegend'
 
 const CampusMap = ({buildingData}) => {
   const [selectedBuilding, setSelectedBuilding] = useState(null)
   const [hoveredInfo, setHoveredInfo] = useState(null)
   const [tooltipPosition, setTooltipPosition] = useState(null)
   const [selectedTooltipPos, setSelectedTooltipPos] = useState(null)
-  
+
   const [viewport, setViewport] = useState({
         latitude: 50.742719,
         longitude: -1.895220,
@@ -46,7 +44,8 @@ const CampusMap = ({buildingData}) => {
     energySources: normaliseDataset(
       buildingDetails.energySources.map(item => ({ ...item, building: buildingDetails.name})),
       'building'
-    )
+    ),
+    environmentalImpact: calculateEnvironmentalImpact(buildingDetails.energySources)
   } : null
 
   const energyLookup = useMemo(() => {
@@ -86,7 +85,13 @@ const CampusMap = ({buildingData}) => {
       }),
     }
   }, [campusData, energyLookup])
-    
+
+  const campusAverage = useMemo(() => {
+  if (!buildingData?.totals?.length) return 0;
+  return buildingData.totals.reduce((sum, item) => sum + item.kWhPerSqm, 0) / 
+         buildingData.totals.length;
+}, [buildingData]);
+
   useEffect(() => {
   if (!selectedBuilding && hoveredInfo?.object) {
     const viewportInstance = new WebMercatorViewport({
@@ -96,9 +101,9 @@ const CampusMap = ({buildingData}) => {
     })
     const [longitude, latitude] = hoveredInfo.object.properties.tooltipAnchor
     const [x, y] = viewportInstance.project([longitude, latitude])
-    setTooltipPosition({ x, y });
+    setTooltipPosition({ x, y })
   } else {
-    setTooltipPosition(null);
+    setTooltipPosition(null)
   }
 }, [hoveredInfo, viewport, selectedBuilding]) 
 
@@ -113,7 +118,7 @@ useEffect(() => {
     const [x, y] = viewportInstance.project([longitude, latitude])
     setSelectedTooltipPos({ x, y })
   } else {
-    setSelectedTooltipPos(null); 
+    setSelectedTooltipPos(null);
   }
 }, [selectedBuilding, viewport])
 
@@ -165,39 +170,7 @@ useEffect(() => {
     ];
 
   return (
-    <div className='absolute bottom-6 right-6 bg-white p-4 rounded-lg shadow-lg min-w-[300px]'>
-      <div className='text-lg font-light text-gray-800 mb-2 text-center tracking-wide'>
-        Energy Use Intensity
-        <div className='text-sm text-gray-600 mt-1'>
-            kWh/m² annually)
-        </div>
-      </div>
-
-      <div className='flex h-4 w-full rounded overflow-hidden'>
-        {COLOUR_SCALE.map((color, index) => (
-          <div
-            key={index}
-            className='flex-1'
-            style={{
-              backgroundColor: `rgba(${color.join(',')})`,
-              width: `${100 / COLOUR_SCALE.length}%`
-            }}
-          />
-        ))}
-      </div>
-        
-      <div className='flex justify-between mt-2 text-xs text-gray-600 tracking-wide'>
-        {rangeLabels.map((label, index) => (
-          <span
-          key={index}
-          className='text-center'
-          style={{
-            width: `${100 / COLOUR_SCALE.length}%`}}>
-            {label}
-          </span>
-        ))}
-      </div>
-  </div>
+    <MapLegend colourScale={COLOUR_SCALE} labels={rangeLabels} />
   )}
   
   return (
@@ -242,77 +215,13 @@ useEffect(() => {
       )}
 
         {renderLegend()}
-        <SlidePanel
-        isOpen={!!selectedBuilding}
+        <BuildingDetailsPanel
+        selectedBuilding={selectedBuilding}
+        normalisedDetails={normalisedDetails}
+        campusAverage={campusAverage}
         onClose={() => setSelectedBuilding(null)}
-        headerContent={
-          normalisedDetails && (
-            <div className='flex items-start justify-between gap-4 flex-1'>
-              <div className='flex flex-col gap-1'>
-                <div className='flex items-center gap-3'>
-                  <EfficiencyBadge 
-                    kWh={selectedBuilding?.properties?.kWh}
-                    COLOUR_SCALE={COLOUR_SCALE} />
-                  <h2 className='text-xl font-light tracking-wide text-stone-700'>
-                    {selectedBuilding?.properties?.name}
-                  </h2>
-              </div>
-              <p className='text-sm text-gray-500 tracking-wider'>
-                Based on annual energy usage (kWh/m²)
-              </p>
-            </div>
-          </div>
-          ) 
-        }
-        >
-        
-        {normalisedDetails && (
-          <div className='flex flex-col gap-6 text-gray-800 text-sm'>
-            
-            <div className='bg-gray-50 rounded-lg p-2 shadow-sm flex flex-col items-center'>
-              <div className='flex items-center gap-2 mb-2 align-middle'>
-                <Zap size={25} className='text-yellow-400' />
-                <h3 className="text-md font-light text-xl tracking-wide mb-2">Yearly Energy Usage</h3>
-              </div>
-              
-              <LineGraph data={normalisedDetails.monthlyUsage} />
-
-              <p className='mt-2 mb-3 text-gray-700 text-sm flex items-center gap-1 justify-center'>
-                <ArrowDown className='text-green-500 w-5 h-5' />
-                <span className='font-light text-base tracking-wide'>
-                  <span className='font-semibold text-gray-800'>X%</span> better than campus average
-                </span>
-              </p>
-            </div>
-
-           
-
-            <div className='bg-gray-50 rounded-lg p-2 shadow-sm flex flex-col items-center'>
-              <div className='flex items-center gap-2 mb-2'>
-                <PieChart size={25} className='text-indigo-500' />
-                <h3 className='text-md font-light text-xl tracking-wide mb-2'>Energy Breakdown</h3>
-              </div>
-
-              <PieGraph data={normalisedDetails.energySources} />
-            </div>
-
-              <div className='grid grid-cols-2 gap-4 w-full'>
-                <div className='bg-gray-50 rounded-lg p-3 flex flex-col items-center shadow-sm'>
-                  <Cloud className='text-gray-400 mb-1' size={22} />
-                  <p className='font-bold text-base text-gray-700'>X kg</p>
-                  <p className='text-gray-500 text-[11px]'>CO₂ / year</p>
-                </div>
-                <div className='bg-gray-50 rounded-lg p-3 flex flex-col items-center text-center shadow-sm'>
-                  <CarFront className='text-gray-400 mb-1' size={22} /> 
-                  <p className='text-gray-500 text-xs'>
-                    Equivalent to driving <br/><span className='font-bold text-base text-gray-700'>27 </span>cars for 1 year
-                  </p>
-                </div>
-              </div>
-            </div>
-          
-        )}
-        </SlidePanel>
+        colourScale={COLOUR_SCALE}
+        />
       </div>
   )
 }
